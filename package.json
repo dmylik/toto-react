@@ -10,11 +10,13 @@
     "preview": "vite preview",
     "server": "node server/index.cjs",
     "start": "node server/index.cjs",
-    "dev:all": "vite build && node server/index.cjs"
+    "dev:all": "vite build && node server/index.cjs",
+    "cron": "node server/cron-fetch.cjs"
   },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "node-cron": "^3.0.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^6.30.3"

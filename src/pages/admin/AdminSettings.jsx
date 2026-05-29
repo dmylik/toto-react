@@ -1,12 +1,36 @@
 import { useData } from '../../context/DataContext';
+import { SCORING_LABELS } from '../../utils/scoring';
 
 export default function AdminSettings() {
-  const { data, updateSettings, refresh } = useData();
+  const { data, updateSettings, updateScoring } = useData();
   const settings = data.app?.settings || {};
+  const scoring = data.app?.scoring || {};
 
   const toggleSetting = (key) => {
     updateSettings({ [key]: !settings[key] });
   };
+
+  const handleScoringChange = (key, value) => {
+    const num = parseInt(value, 10);
+    if (!isNaN(num) && num >= 0) {
+      updateScoring({ [key]: num });
+    }
+  };
+
+  const scoringFields = [
+    { key: 'matchOutcome', label: SCORING_LABELS.matchOutcome },
+    { key: 'goalDifference', label: SCORING_LABELS.goalDifference },
+    { key: 'teamGoals', label: SCORING_LABELS.teamGoals },
+    { key: 'offByOne', label: SCORING_LABELS.offByOne },
+    { key: 'exactScore', label: SCORING_LABELS.exactScore },
+  ];
+
+  const specialScoringFields = [
+    { key: 'groupFinalist', label: SCORING_LABELS.groupFinalist },
+    { key: 'finalist', label: SCORING_LABELS.finalist },
+    { key: 'champion', label: SCORING_LABELS.champion },
+    { key: 'thirdPlace', label: SCORING_LABELS.thirdPlace },
+  ];
 
   return (
     <div className="admin-settings">
@@ -64,6 +88,53 @@ export default function AdminSettings() {
             {settings.lockPlayoffSection ? '🔒 Заблокировано' : '🔓 Открыто'}
           </button>
         </div>
+      </div>
+
+      <hr className="section-divider" />
+
+      <h1 className="page-title">🎯 Настройки начисления очков</h1>
+      <p className="page-subtitle">Измените значения очков за каждый тип прогноза</p>
+
+      <div className="settings-list">
+        <h3 style={{ margin: '0.5rem 0', color: '#fbbf24' }}>За прогнозы на матчи</h3>
+        {scoringFields.map(field => (
+          <div key={field.key} className="setting-row">
+            <div className="setting-info">
+              <h3>{field.label}</h3>
+            </div>
+            <div className="scoring-input-group">
+              <input
+                type="number"
+                min="0"
+                max="100"
+                className="scoring-input"
+                value={scoring[field.key] ?? ''}
+                onChange={e => handleScoringChange(field.key, e.target.value)}
+              />
+              <span className="scoring-unit">очк.</span>
+            </div>
+          </div>
+        ))}
+
+        <h3 style={{ margin: '1rem 0 0.5rem', color: '#fbbf24' }}>За финалистов и победителей</h3>
+        {specialScoringFields.map(field => (
+          <div key={field.key} className="setting-row">
+            <div className="setting-info">
+              <h3>{field.label}</h3>
+            </div>
+            <div className="scoring-input-group">
+              <input
+                type="number"
+                min="0"
+                max="100"
+                className="scoring-input"
+                value={scoring[field.key] ?? ''}
+                onChange={e => handleScoringChange(field.key, e.target.value)}
+              />
+              <span className="scoring-unit">очк.</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

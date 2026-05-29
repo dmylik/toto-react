@@ -129,11 +129,28 @@ sudo certbot --nginx -d your-domain.com
 
 ```bash
 pm2 status                    # list all processes
+pm2 show toto-predictor       # detailed info (shows path, uptime, restarts, etc.)
+pm2 info toto-predictor       # same as show
 pm2 logs toto-predictor       # view logs
 pm2 logs toto-predictor --lines 100  # last 100 lines
 pm2 restart toto-predictor    # restart
 pm2 stop toto-predictor       # stop
 pm2 delete toto-predictor     # remove from PM2
+```
+
+### Проверка пути (рабочей директории) процесса
+
+Чтобы узнать, из какой папки запущен процесс на сервере:
+
+```bash
+# Через PM2 (показывает cwd — current working directory)
+pm2 show toto-predictor
+
+# В выводе найдите строку "cwd" — это полный путь до папки проекта
+# Пример: cwd  /home/user/toto-react
+
+# Альтернатива — через PID процесса
+pm2 pid toto-predictor | xargs -I {} ls -l /proc/{}/cwd
 ```
 
 ---

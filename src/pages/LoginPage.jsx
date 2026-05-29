@@ -10,6 +10,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
@@ -87,17 +88,26 @@ export default function LoginPage() {
 
           <div className="form-field">
             <label>Пароль</label>
-            <input type="password" value={password}
-              onChange={e => setPassword(e.target.value)}
-              placeholder="Введите пароль" required />
+            <div className="password-input-wrapper">
+              <input type={showPassword ? 'text' : 'password'} value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Введите пароль" required />
+              <button type="button" className="password-toggle-btn"
+                onClick={() => setShowPassword(!showPassword)}
+                tabIndex={-1}>
+                {showPassword ? '🙈' : '👁'}
+              </button>
+            </div>
           </div>
 
           {isRegister && (
             <div className="form-field">
               <label>Повторите пароль</label>
-              <input type="password" value={password2}
-                onChange={e => setPassword2(e.target.value)}
-                placeholder="Повторите пароль" required />
+              <div className="password-input-wrapper">
+                <input type={showPassword ? 'text' : 'password'} value={password2}
+                  onChange={e => setPassword2(e.target.value)}
+                  placeholder="Повторите пароль" required />
+              </div>
             </div>
           )}
 

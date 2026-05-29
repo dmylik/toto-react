@@ -1151,6 +1151,262 @@ a:hover { text-decoration: underline; }
   font-size: 0.8rem;
 }
 
+/* ===== Password Input ===== */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.password-toggle-btn:hover {
+  opacity: 1;
+}
+
+/* ===== Scoring Input (Admin Settings) ===== */
+.scoring-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.scoring-input {
+  width: 5rem;
+  padding: 0.5rem;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.scoring-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.scoring-unit {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* ===== Statistics Detail ===== */
+.stat-player-name {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.stat-player-login {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.btn-detail {
+  padding: 0.25rem 0.6rem;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.btn-detail:hover {
+  background: #475569;
+  color: #e2e8f0;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+
+.btn-back:hover {
+  background: #475569;
+  color: #e2e8f0;
+}
+
+/* ===== Scoring Rules Box ===== */
+.scoring-rules-box {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: left;
+}
+
+.scoring-rules-box h3 {
+  color: #fbbf24;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.scoring-rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.scoring-rules-col h4 {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+.scoring-rules-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.scoring-rules-col li {
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  padding: 0.15rem 0;
+}
+
+.scoring-rules-col li strong {
+  color: #fbbf24;
+}
+
+/* ===== Stat Detail (Drill-down) ===== */
+.stat-detail {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.stat-detail-name {
+  color: #fbbf24;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.stat-detail-total {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.stat-detail-total strong {
+  color: #fbbf24;
+  font-size: 1.2rem;
+}
+
+.stat-section {
+  margin-bottom: 1.5rem;
+}
+
+.stat-section h3 {
+  color: #e2e8f0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-section-total {
+  color: #22c55e;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stat-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-match-card {
+  background: #1e293b;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  border-left: 3px solid #334155;
+}
+
+.stat-match-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-match-badge {
+  background: #334155;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.stat-match-teams {
+  flex: 1;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.stat-match-points {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.stat-match-points.points-earned {
+  color: #22c55e;
+}
+
+.stat-match-result {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.stat-match-result strong {
+  color: #fbbf24;
+}
+
+.stat-details-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.stat-detail-badge {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .navbar {
@@ -1179,5 +1435,32 @@ a:hover { text-decoration: underline; }
   .admin-match-row {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .match-card {
+    flex-wrap: wrap;
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .match-date-time {
+    min-width: auto;
+  }
+
+  .match-prediction {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+
+  .match-result {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+
+  .match-teams-inline {
+    white-space: normal;
+    flex: 0 1 auto;
   }
 }

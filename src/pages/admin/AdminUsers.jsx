@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useData } from '../../context/DataContext';
 
 export default function AdminUsers() {
   const { data, approveUser, rejectUser, deleteUser } = useData();
+  const [showPasswords, setShowPasswords] = useState(false);
 
   const pendingUsers = data.users.filter(u => u.role === 'user' && u.status === 'pending');
   const approvedUsers = data.users.filter(u => u.role === 'user' && u.status === 'approved');
@@ -55,12 +57,19 @@ export default function AdminUsers() {
         </>
       )}
 
-      <h2 className="page-subtitle">Участники ({approvedUsers.length})</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+        <h2 className="page-subtitle" style={{ marginBottom: 0 }}>Участники ({approvedUsers.length})</h2>
+        <button className="btn-small" onClick={() => setShowPasswords(!showPasswords)}>
+          {showPasswords ? '🙈 Скрыть пароли' : '👁 Показать пароли'}
+        </button>
+      </div>
       <table className="admin-table">
         <thead>
           <tr>
             <th>ID</th>
             <th>Имя</th>
+            <th>Логин</th>
+            {showPasswords && <th>Пароль</th>}
             <th>Прогнозов</th>
             <th>Действия</th>
           </tr>
@@ -71,7 +80,9 @@ export default function AdminUsers() {
             return (
               <tr key={u.id}>
                 <td className="cell-id">{u.id.slice(0, 12)}...</td>
+                <td>{u.fullname || u.username}</td>
                 <td>{u.username}</td>
+                {showPasswords && <td className="cell-id">{u.password}</td>}
                 <td>{predictionCount}</td>
                 <td>
                   <button className="btn-danger-small" onClick={() => handleDelete(u.id)}>Удалить</button>
@@ -81,7 +92,7 @@ export default function AdminUsers() {
           })}
           {approvedUsers.length === 0 && (
             <tr>
-              <td colSpan="4" className="empty-cell">Нет подтверждённых пользователей</td>
+              <td colSpan={showPasswords ? 6 : 5} className="empty-cell">Нет подтверждённых пользователей</td>
             </tr>
           )}
         </tbody>

@@ -1,11 +1,12 @@
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { calculateMatchScore } from '../utils/scoring';
+import { calculateMatchScore, getScoringConfig } from '../utils/scoring';
 
 export default function MyPredictionsPage() {
   const { data } = useData();
   const { user } = useAuth();
   const userPredictions = data.predictions[user?.id] || {};
+  const cfg = getScoringConfig(data);
 
   const predictionsList = Object.entries(userPredictions).map(([matchId, pred]) => {
     const match = data.matches.find(m => m.id === matchId);
@@ -22,7 +23,7 @@ export default function MyPredictionsPage() {
       ) : (
         <div className="predictions-list">
           {predictionsList.map(({ matchId, pred, match }) => {
-            const score = calculateMatchScore(pred, match);
+            const score = calculateMatchScore(pred, match, cfg);
             return (
               <div key={matchId} className={`prediction-card ${match.played ? 'prediction-settled' : ''}`}>
                 <div className="prediction-header">
@@ -39,8 +40,8 @@ export default function MyPredictionsPage() {
                 {match.played ? (
                   <div className="prediction-result">
                     <span>Результат: <strong>{match.score1}:{match.score2}</strong></span>
-                    <span className={`score-points ${score > 0 ? 'points-earned' : ''}`}>
-                      {score > 0 ? `+${score} баллов` : '0 баллов'}
+                    <span className={`score-points ${score.total > 0 ? 'points-earned' : ''}`}>
+                      {score.total > 0 ? `+${score.total} баллов` : '0 баллов'}
                     </span>
                   </div>
                 ) : (

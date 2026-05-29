@@ -30,8 +30,10 @@ export function DataProvider({ children }) {
   }, [refresh]);
 
   const updateData = useCallback(async (newData) => {
-    setData(newData);
-    await saveData(newData);
+    // Deep clone to ensure React detects state change
+    const cloned = JSON.parse(JSON.stringify(newData));
+    setData(cloned);
+    await saveData(cloned);
   }, []);
 
   // Settings
@@ -42,6 +44,22 @@ export function DataProvider({ children }) {
   const updateSettings = useCallback(async (newSettings) => {
     if (!data) return;
     data.app.settings = { ...data.app.settings, ...newSettings };
+    await updateData(data);
+  }, [data, updateData]);
+
+  // Scoring config
+  const getScoringConfig = useCallback(() => {
+    const defaults = {
+      matchOutcome: 3, goalDifference: 3, teamGoals: 1,
+      offByOne: 1, exactScore: 1,
+      groupFinalist: 1, finalist: 15, champion: 25, thirdPlace: 10,
+    };
+    return { ...defaults, ...(data?.app?.scoring || {}) };
+  }, [data]);
+
+  const updateScoring = useCallback(async (newScoring) => {
+    if (!data) return;
+    data.app.scoring = { ...data.app.scoring, ...newScoring };
     await updateData(data);
   }, [data, updateData]);
 
@@ -179,6 +197,7 @@ export function DataProvider({ children }) {
     <DataContext.Provider value={{
       data, refresh,
       getSetting, updateSettings,
+      getScoringConfig, updateScoring,
       updateMatchScore, deleteMatch, addMatch,
       savePrediction, getUserPredictions,
       saveFinals, getUserFinals,

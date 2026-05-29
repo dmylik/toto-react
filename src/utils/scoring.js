@@ -1,43 +1,97 @@
+// ===== Default scoring config =====
+export const DEFAULT_SCORING = {
+  matchOutcome: 3,      // Угадан исход матча
+  goalDifference: 3,    // Угадана разница голов
+  teamGoals: 1,         // Угадано кол-во голов одной команды
+  offByOne: 1,           // Прогноз отличается на 1 гол
+  exactScore: 1,         // Полностью угадан счёт
+  groupFinalist: 1,      // Угадан финалист группы
+  finalist: 15,          // Угадана команда-финалист
+  champion: 25,          // Угадан победитель турнира
+  thirdPlace: 10,        // Угадано 3 место
+};
+
+// ===== Helpers =====
+
 export function isPredicationBlocked(match) {
   if (!match || !match.dateTime) return false;
   const matchTime = new Date(match.dateTime).getTime();
   const now = Date.now();
-  return (matchTime - now) < 30 * 60 * 1000; // less than 30 min until match
+  return (matchTime - now) < 30 * 60 * 1000;
 }
 
-export function calculateMatchScore(prediction, actual) {
-  if (!prediction || !actual) return 0;
-  if (actual.score1 === null || actual.score2 === null) return 0;
+export function getScoringConfig(data) {
+  return { ...DEFAULT_SCORING, ...(data?.app?.scoring || {}) };
+}
+
+// ===== Match Score Calculation =====
+
+/**
+ * Returns { total, details[] } where details is an array of { rule, points }.
+ */
+export function calculateMatchScore(prediction, actual, scoringConfig) {
+  const cfg = scoringConfig || DEFAULT_SCORING;
+
+  if (!prediction || !actual) return { total: 0, details: [] };
+  if (actual.score1 === null || actual.score2 === null) return { total: 0, details: [] };
 
   const predScore1 = Number(prediction.score1);
   const predScore2 = Number(prediction.score2);
   const actScore1 = Number(actual.score1);
   const actScore2 = Number(actual.score2);
 
-  if (isNaN(predScore1) || isNaN(predScore2)) return 0;
+  if (isNaN(predScore1) || isNaN(predScore2)) return { total: 0, details: [] };
 
-  // Exact score = 3 points
-  if (predScore1 === actScore1 && predScore2 === actScore2) {
-    return 3;
-  }
+  const details = [];
 
-  // Correct outcome (win/loss/draw) = 1 point
+  // 1. Correct outcome (win/loss/draw)
   const predDiff = predScore1 - predScore2;
   const actDiff = actScore1 - actScore2;
+  const outcomeMatch =
+    (predDiff > 0 && actDiff > 0) ||
+    (predDiff < 0 && actDiff < 0) ||
+    (predDiff === 0 && actDiff === 0);
 
-  if ((predDiff > 0 && actDiff > 0) ||
-      (predDiff < 0 && actDiff < 0) ||
-      (predDiff === 0 && actDiff === 0)) {
-    return 1;
+  if (outcomeMatch) {
+    details.push({ rule: 'matchOutcome', points: cfg.matchOutcome });
   }
 
-  return 0;
+  // 2. Correct goal difference
+  if (predDiff === actDiff) {
+    details.push({ rule: 'goalDifference', points: cfg.goalDifference });
+  }
+
+  // 3. Correct goals by one team
+  if (predScore1 === actScore1) {
+    details.push({ rule: 'teamGoals', points: cfg.teamGoals });
+  }
+  if (predScore2 === actScore2) {
+    details.push({ rule: 'teamGoals', points: cfg.teamGoals });
+  }
+
+  // 4. Total goals off by 1
+  const predTotal = predScore1 + predScore2;
+  const actTotal = actScore1 + actScore2;
+  if (Math.abs(predTotal - actTotal) === 1) {
+    details.push({ rule: 'offByOne', points: cfg.offByOne });
+  }
+
+  // 5. Exact score
+  if (predScore1 === actScore1 && predScore2 === actScore2) {
+    details.push({ rule: 'exactScore', points: cfg.exactScore });
+  }
+
+  const total = details.reduce((sum, d) => sum + d.points, 0);
+  return { total, details };
 }
 
-export function calculateFinalsScore(userFinals, actualFinals) {
-  if (!userFinals || !actualFinals) return 0;
+// ===== Finals Score Calculation =====
 
-  let score = 0;
+export function calculateFinalsScore(userFinals, actualFinals, scoringConfig) {
+  const cfg = scoringConfig || DEFAULT_SCORING;
+  if (!userFinals || !actualFinals) return { total: 0, details: [] };
+
+  const details = [];
   const groups = Object.keys(actualFinals);
 
   for (const group of groups) {
@@ -46,58 +100,130 @@ export function calculateFinalsScore(userFinals, actualFinals) {
 
     for (const team of userWinners) {
       if (actualWinners.includes(team)) {
-        score += 2; // 2 points per correctly predicted finalist
+        details.push({
+          rule: 'groupFinalist',
+          points: cfg.groupFinalist,
+          group,
+          team,
+        });
       }
     }
   }
 
-  return score;
+  const total = details.reduce((sum, d) => sum + d.points, 0);
+  return { total, details };
 }
 
-export function calculateWinnersScore(userWinners, actualWinners) {
-  if (!userWinners || !actualWinners) return 0;
-  let score = 0;
+// ===== Winners Score Calculation =====
 
-  // 1st place = 5 points
+export function calculateWinnersScore(userWinners, actualWinners, scoringConfig) {
+  const cfg = scoringConfig || DEFAULT_SCORING;
+  if (!userWinners || !actualWinners) return { total: 0, details: [] };
+
+  const details = [];
+
+  // Champion
   if (userWinners.first && userWinners.first === actualWinners.first) {
-    score += 5;
+    details.push({ rule: 'champion', points: cfg.champion, team: userWinners.first });
   }
-  // 2nd place = 3 points
+  // Finalist (2nd)
   if (userWinners.second && userWinners.second === actualWinners.second) {
-    score += 3;
+    details.push({ rule: 'finalist', points: cfg.finalist, team: userWinners.second });
   }
-  // 3rd place = 2 points
+  // 3rd place
   if (userWinners.third && userWinners.third === actualWinners.third) {
-    score += 2;
+    details.push({ rule: 'thirdPlace', points: cfg.thirdPlace, team: userWinners.third });
   }
 
-  return score;
+  const total = details.reduce((sum, d) => sum + d.points, 0);
+  return { total, details };
 }
+
+// ===== Total Score =====
 
 export function calculateTotalScore(userId, data) {
-  let score = 0;
+  const cfg = getScoringConfig(data);
+  let total = 0;
 
   // Match predictions
   const userPredictions = data.predictions[userId] || {};
   for (const matchId of Object.keys(userPredictions)) {
     const match = data.matches.find(m => m.id === matchId);
     if (match && match.played) {
-      score += calculateMatchScore(userPredictions[matchId], match);
+      total += calculateMatchScore(userPredictions[matchId], match, cfg).total;
     }
   }
 
   // Finals predictions
   const actualFinals = data.actualFinals || {};
   const userFinals = data.finals[userId] || {};
-  score += calculateFinalsScore(userFinals, actualFinals);
+  total += calculateFinalsScore(userFinals, actualFinals, cfg).total;
 
   // Winners prediction
   const actualWinners = data.actualWinners || {};
   const userWinners = data.winners[userId] || {};
-  score += calculateWinnersScore(userWinners, actualWinners);
+  total += calculateWinnersScore(userWinners, actualWinners, cfg).total;
 
-  return score;
+  return total;
 }
+
+// ===== Score History (detailed breakdown) =====
+
+export function getDetailedScoreHistory(userId, data) {
+  const cfg = getScoringConfig(data);
+  const history = {
+    userId,
+    matchScores: [],
+    finalsScore: null,
+    winnersScore: null,
+    total: 0,
+  };
+
+  // Match scores
+  const userPredictions = data.predictions[userId] || {};
+  for (const matchId of Object.keys(userPredictions)) {
+    const match = data.matches.find(m => m.id === matchId);
+    if (match && match.played) {
+      const result = calculateMatchScore(userPredictions[matchId], match, cfg);
+      history.matchScores.push({
+        matchId,
+        team1: match.team1,
+        team2: match.team2,
+        group: match.group,
+        stage: match.stage,
+        prediction: userPredictions[matchId],
+        actual: { score1: match.score1, score2: match.score2 },
+        total: result.total,
+        details: result.details,
+      });
+    }
+  }
+
+  // Finals
+  const actualFinals = data.actualFinals || {};
+  const userFinals = data.finals[userId] || {};
+  const finalsResult = calculateFinalsScore(userFinals, actualFinals, cfg);
+  if (finalsResult.details.length > 0) {
+    history.finalsScore = { total: finalsResult.total, details: finalsResult.details };
+  }
+
+  // Winners
+  const actualWinners = data.actualWinners || {};
+  const userWinners = data.winners[userId] || {};
+  const winnersResult = calculateWinnersScore(userWinners, actualWinners, cfg);
+  if (winnersResult.details.length > 0) {
+    history.winnersScore = { total: winnersResult.total, details: winnersResult.details };
+  }
+
+  history.total =
+    history.matchScores.reduce((sum, s) => sum + s.total, 0) +
+    (history.finalsScore?.total || 0) +
+    (history.winnersScore?.total || 0);
+
+  return history;
+}
+
+// ===== Leaderboard =====
 
 export function getAllUsersScores(data) {
   const scores = [];
@@ -109,6 +235,7 @@ export function getAllUsersScores(data) {
     scores.push({
       userId: user.id,
       username: user.username,
+      fullname: user.fullname || user.username,
       score: totalScore,
     });
   }
@@ -116,6 +243,8 @@ export function getAllUsersScores(data) {
   scores.sort((a, b) => b.score - a.score);
   return scores;
 }
+
+// ===== Date Formatting =====
 
 export function formatMatchDateTime(dateTimeStr) {
   if (!dateTimeStr) return '';
@@ -126,3 +255,17 @@ export function formatMatchDateTime(dateTimeStr) {
   const mins = String(d.getMinutes()).padStart(2, '0');
   return `${day}.${month}. ${hours}:${mins}`;
 }
+
+// ===== Scoring Labels (for UI) =====
+
+export const SCORING_LABELS = {
+  matchOutcome: 'Исход матча',
+  goalDifference: 'Разница голов',
+  teamGoals: 'Голы одной команды',
+  offByOne: 'Отличие на 1 гол',
+  exactScore: 'Точный счёт',
+  groupFinalist: 'Финалист группы',
+  finalist: 'Финалист турнира',
+  champion: 'Победитель турнира',
+  thirdPlace: '3-е место',
+};
