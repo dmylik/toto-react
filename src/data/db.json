@@ -1,0 +1,1000 @@
+{
+  "app": {
+    "settings": {
+      "lockPredictions": false,
+      "lockFinalsSelection": false,
+      "lockWinnerSelection": false,
+      "lockPlayoffSection": true
+    }
+  },
+  "users": [
+    {
+      "id": "admin",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "status": "approved"
+    }
+  ],
+  "groups": {
+    "A": {
+      "name": "Группа A",
+      "teams": [
+        "Чехия",
+        "Мексика",
+        "Южная Африка",
+        "Южная Корея"
+      ]
+    },
+    "B": {
+      "name": "Группа B",
+      "teams": [
+        "Швейцария",
+        "Босния и Герцеговина",
+        "Канада",
+        "Катар"
+      ]
+    },
+    "C": {
+      "name": "Группа C",
+      "teams": [
+        "Шотландия",
+        "Бразилия",
+        "Гаити",
+        "Марокко"
+      ]
+    },
+    "D": {
+      "name": "Группа D",
+      "teams": [
+        "Турция",
+        "Парагвай",
+        "США",
+        "Австралия"
+      ]
+    },
+    "E": {
+      "name": "Группа E",
+      "teams": [
+        "Германия",
+        "Эквадор",
+        "Кот-д'Ивуар",
+        "Кюрасао"
+      ]
+    },
+    "F": {
+      "name": "Группа F",
+      "teams": [
+        "Швеция",
+        "Нидерланды",
+        "Тунис",
+        "Япония"
+      ]
+    },
+    "G": {
+      "name": "Группа G",
+      "teams": [
+        "Бельгия",
+        "Египет",
+        "Иран",
+        "Новая Зеландия"
+      ]
+    },
+    "H": {
+      "name": "Группа H",
+      "teams": [
+        "Испания",
+        "Уругвай",
+        "Кабо-Верде",
+        "Саудовская Аравия"
+      ]
+    },
+    "I": {
+      "name": "Группа I",
+      "teams": [
+        "Франция",
+        "Норвегия",
+        "Сенегал",
+        "Ирак"
+      ]
+    },
+    "J": {
+      "name": "Группа J",
+      "teams": [
+        "Австрия",
+        "Аргентина",
+        "Алжир",
+        "Иордания"
+      ]
+    },
+    "K": {
+      "name": "Группа K",
+      "teams": [
+        "Португалия",
+        "Колумбия",
+        "ДР Конго",
+        "Узбекистан"
+      ]
+    },
+    "L": {
+      "name": "Группа L",
+      "teams": [
+        "Хорватия",
+        "Англия",
+        "Гана",
+        "Панама"
+      ]
+    }
+  },
+  "matches": [
+    {
+      "id": "M1",
+      "group": "A",
+      "team1": "Мексика",
+      "team2": "Южная Африка",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 1,
+      "dateTime": "2026-06-11T22:00:00"
+    },
+    {
+      "id": "M2",
+      "group": "A",
+      "team1": "Южная Корея",
+      "team2": "Чехия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 2,
+      "dateTime": "2026-06-12T05:00:00"
+    },
+    {
+      "id": "M3",
+      "group": "B",
+      "team1": "Канада",
+      "team2": "Босния и Герцеговина",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 3,
+      "dateTime": "2026-06-12T22:00:00"
+    },
+    {
+      "id": "M4",
+      "group": "D",
+      "team1": "США",
+      "team2": "Парагвай",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 4,
+      "dateTime": "2026-06-13T04:00:00"
+    },
+    {
+      "id": "M5",
+      "group": "B",
+      "team1": "Катар",
+      "team2": "Швейцария",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 5,
+      "dateTime": "2026-06-13T22:00:00"
+    },
+    {
+      "id": "M6",
+      "group": "C",
+      "team1": "Бразилия",
+      "team2": "Марокко",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 6,
+      "dateTime": "2026-06-14T01:00:00"
+    },
+    {
+      "id": "M7",
+      "group": "C",
+      "team1": "Гаити",
+      "team2": "Шотландия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 7,
+      "dateTime": "2026-06-14T04:00:00"
+    },
+    {
+      "id": "M8",
+      "group": "D",
+      "team1": "Австралия",
+      "team2": "Турция",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 8,
+      "dateTime": "2026-06-14T07:00:00"
+    },
+    {
+      "id": "M9",
+      "group": "E",
+      "team1": "Германия",
+      "team2": "Кюрасао",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 9,
+      "dateTime": "2026-06-14T20:00:00"
+    },
+    {
+      "id": "M10",
+      "group": "F",
+      "team1": "Нидерланды",
+      "team2": "Япония",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 10,
+      "dateTime": "2026-06-14T23:00:00"
+    },
+    {
+      "id": "M11",
+      "group": "E",
+      "team1": "Кот-д'Ивуар",
+      "team2": "Эквадор",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 11,
+      "dateTime": "2026-06-15T02:00:00"
+    },
+    {
+      "id": "M12",
+      "group": "F",
+      "team1": "Швеция",
+      "team2": "Тунис",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 12,
+      "dateTime": "2026-06-15T05:00:00"
+    },
+    {
+      "id": "M13",
+      "group": "H",
+      "team1": "Испания",
+      "team2": "Кабо-Верде",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 13,
+      "dateTime": "2026-06-15T19:00:00"
+    },
+    {
+      "id": "M14",
+      "group": "G",
+      "team1": "Бельгия",
+      "team2": "Египет",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 14,
+      "dateTime": "2026-06-15T22:00:00"
+    },
+    {
+      "id": "M15",
+      "group": "H",
+      "team1": "Саудовская Аравия",
+      "team2": "Уругвай",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 15,
+      "dateTime": "2026-06-16T01:00:00"
+    },
+    {
+      "id": "M16",
+      "group": "G",
+      "team1": "Иран",
+      "team2": "Новая Зеландия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 16,
+      "dateTime": "2026-06-16T04:00:00"
+    },
+    {
+      "id": "M17",
+      "group": "I",
+      "team1": "Франция",
+      "team2": "Сенегал",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 17,
+      "dateTime": "2026-06-16T22:00:00"
+    },
+    {
+      "id": "M18",
+      "group": "I",
+      "team1": "Ирак",
+      "team2": "Норвегия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 18,
+      "dateTime": "2026-06-17T01:00:00"
+    },
+    {
+      "id": "M19",
+      "group": "J",
+      "team1": "Аргентина",
+      "team2": "Алжир",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 19,
+      "dateTime": "2026-06-17T04:00:00"
+    },
+    {
+      "id": "M20",
+      "group": "J",
+      "team1": "Австрия",
+      "team2": "Иордания",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 20,
+      "dateTime": "2026-06-17T07:00:00"
+    },
+    {
+      "id": "M21",
+      "group": "K",
+      "team1": "Португалия",
+      "team2": "ДР Конго",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 21,
+      "dateTime": "2026-06-17T20:00:00"
+    },
+    {
+      "id": "M22",
+      "group": "L",
+      "team1": "Англия",
+      "team2": "Хорватия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 22,
+      "dateTime": "2026-06-17T23:00:00"
+    },
+    {
+      "id": "M23",
+      "group": "L",
+      "team1": "Гана",
+      "team2": "Панама",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 23,
+      "dateTime": "2026-06-18T02:00:00"
+    },
+    {
+      "id": "M24",
+      "group": "K",
+      "team1": "Узбекистан",
+      "team2": "Колумбия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 24,
+      "dateTime": "2026-06-18T05:00:00"
+    },
+    {
+      "id": "M25",
+      "group": "A",
+      "team1": "Чехия",
+      "team2": "Южная Африка",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 25,
+      "dateTime": "2026-06-18T19:00:00"
+    },
+    {
+      "id": "M26",
+      "group": "B",
+      "team1": "Швейцария",
+      "team2": "Босния и Герцеговина",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 26,
+      "dateTime": "2026-06-18T22:00:00"
+    },
+    {
+      "id": "M27",
+      "group": "B",
+      "team1": "Канада",
+      "team2": "Катар",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 27,
+      "dateTime": "2026-06-19T01:00:00"
+    },
+    {
+      "id": "M28",
+      "group": "A",
+      "team1": "Мексика",
+      "team2": "Южная Корея",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 28,
+      "dateTime": "2026-06-19T04:00:00"
+    },
+    {
+      "id": "M29",
+      "group": "D",
+      "team1": "США",
+      "team2": "Австралия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 29,
+      "dateTime": "2026-06-19T22:00:00"
+    },
+    {
+      "id": "M30",
+      "group": "C",
+      "team1": "Шотландия",
+      "team2": "Марокко",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 30,
+      "dateTime": "2026-06-20T01:00:00"
+    },
+    {
+      "id": "M31",
+      "group": "C",
+      "team1": "Бразилия",
+      "team2": "Гаити",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 31,
+      "dateTime": "2026-06-20T03:30:00"
+    },
+    {
+      "id": "M32",
+      "group": "D",
+      "team1": "Турция",
+      "team2": "Парагвай",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 32,
+      "dateTime": "2026-06-20T06:00:00"
+    },
+    {
+      "id": "M33",
+      "group": "F",
+      "team1": "Нидерланды",
+      "team2": "Швеция",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 33,
+      "dateTime": "2026-06-20T20:00:00"
+    },
+    {
+      "id": "M34",
+      "group": "E",
+      "team1": "Германия",
+      "team2": "Кот-д'Ивуар",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 34,
+      "dateTime": "2026-06-20T23:00:00"
+    },
+    {
+      "id": "M35",
+      "group": "E",
+      "team1": "Эквадор",
+      "team2": "Кюрасао",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 35,
+      "dateTime": "2026-06-21T03:00:00"
+    },
+    {
+      "id": "M36",
+      "group": "F",
+      "team1": "Тунис",
+      "team2": "Япония",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 36,
+      "dateTime": "2026-06-21T07:00:00"
+    },
+    {
+      "id": "M37",
+      "group": "H",
+      "team1": "Испания",
+      "team2": "Саудовская Аравия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 37,
+      "dateTime": "2026-06-21T19:00:00"
+    },
+    {
+      "id": "M38",
+      "group": "G",
+      "team1": "Бельгия",
+      "team2": "Иран",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 38,
+      "dateTime": "2026-06-21T22:00:00"
+    },
+    {
+      "id": "M39",
+      "group": "H",
+      "team1": "Уругвай",
+      "team2": "Кабо-Верде",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 39,
+      "dateTime": "2026-06-22T01:00:00"
+    },
+    {
+      "id": "M40",
+      "group": "G",
+      "team1": "Новая Зеландия",
+      "team2": "Египет",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 40,
+      "dateTime": "2026-06-22T04:00:00"
+    },
+    {
+      "id": "M41",
+      "group": "J",
+      "team1": "Аргентина",
+      "team2": "Австрия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 41,
+      "dateTime": "2026-06-22T20:00:00"
+    },
+    {
+      "id": "M42",
+      "group": "I",
+      "team1": "Франция",
+      "team2": "Ирак",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 42,
+      "dateTime": "2026-06-23T00:00:00"
+    },
+    {
+      "id": "M43",
+      "group": "I",
+      "team1": "Норвегия",
+      "team2": "Сенегал",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 43,
+      "dateTime": "2026-06-23T03:00:00"
+    },
+    {
+      "id": "M44",
+      "group": "J",
+      "team1": "Иордания",
+      "team2": "Алжир",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 44,
+      "dateTime": "2026-06-23T06:00:00"
+    },
+    {
+      "id": "M45",
+      "group": "K",
+      "team1": "Португалия",
+      "team2": "Узбекистан",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 45,
+      "dateTime": "2026-06-23T20:00:00"
+    },
+    {
+      "id": "M46",
+      "group": "L",
+      "team1": "Англия",
+      "team2": "Гана",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 46,
+      "dateTime": "2026-06-23T23:00:00"
+    },
+    {
+      "id": "M47",
+      "group": "L",
+      "team1": "Панама",
+      "team2": "Хорватия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 47,
+      "dateTime": "2026-06-24T02:00:00"
+    },
+    {
+      "id": "M48",
+      "group": "K",
+      "team1": "Колумбия",
+      "team2": "ДР Конго",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 48,
+      "dateTime": "2026-06-24T05:00:00"
+    },
+    {
+      "id": "M49",
+      "group": "B",
+      "team1": "Босния и Герцеговина",
+      "team2": "Катар",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 49,
+      "dateTime": "2026-06-24T22:00:00"
+    },
+    {
+      "id": "M50",
+      "group": "B",
+      "team1": "Швейцария",
+      "team2": "Канада",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 50,
+      "dateTime": "2026-06-24T22:00:00"
+    },
+    {
+      "id": "M51",
+      "group": "C",
+      "team1": "Марокко",
+      "team2": "Гаити",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 51,
+      "dateTime": "2026-06-25T01:00:00"
+    },
+    {
+      "id": "M52",
+      "group": "C",
+      "team1": "Шотландия",
+      "team2": "Бразилия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 52,
+      "dateTime": "2026-06-25T01:00:00"
+    },
+    {
+      "id": "M53",
+      "group": "A",
+      "team1": "Чехия",
+      "team2": "Мексика",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 53,
+      "dateTime": "2026-06-25T04:00:00"
+    },
+    {
+      "id": "M54",
+      "group": "A",
+      "team1": "Южная Африка",
+      "team2": "Южная Корея",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 54,
+      "dateTime": "2026-06-25T04:00:00"
+    },
+    {
+      "id": "M55",
+      "group": "E",
+      "team1": "Кюрасао",
+      "team2": "Кот-д'Ивуар",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 55,
+      "dateTime": "2026-06-25T23:00:00"
+    },
+    {
+      "id": "M56",
+      "group": "E",
+      "team1": "Эквадор",
+      "team2": "Германия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 56,
+      "dateTime": "2026-06-25T23:00:00"
+    },
+    {
+      "id": "M57",
+      "group": "F",
+      "team1": "Тунис",
+      "team2": "Нидерланды",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 57,
+      "dateTime": "2026-06-26T02:00:00"
+    },
+    {
+      "id": "M58",
+      "group": "F",
+      "team1": "Япония",
+      "team2": "Швеция",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 58,
+      "dateTime": "2026-06-26T02:00:00"
+    },
+    {
+      "id": "M59",
+      "group": "D",
+      "team1": "Парагвай",
+      "team2": "Австралия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 59,
+      "dateTime": "2026-06-26T05:00:00"
+    },
+    {
+      "id": "M60",
+      "group": "D",
+      "team1": "Турция",
+      "team2": "США",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 60,
+      "dateTime": "2026-06-26T05:00:00"
+    },
+    {
+      "id": "M61",
+      "group": "I",
+      "team1": "Норвегия",
+      "team2": "Франция",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 61,
+      "dateTime": "2026-06-26T22:00:00"
+    },
+    {
+      "id": "M62",
+      "group": "I",
+      "team1": "Сенегал",
+      "team2": "Ирак",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 62,
+      "dateTime": "2026-06-26T22:00:00"
+    },
+    {
+      "id": "M63",
+      "group": "H",
+      "team1": "Кабо-Верде",
+      "team2": "Саудовская Аравия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 63,
+      "dateTime": "2026-06-27T03:00:00"
+    },
+    {
+      "id": "M64",
+      "group": "H",
+      "team1": "Уругвай",
+      "team2": "Испания",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 64,
+      "dateTime": "2026-06-27T03:00:00"
+    },
+    {
+      "id": "M65",
+      "group": "G",
+      "team1": "Египет",
+      "team2": "Иран",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 65,
+      "dateTime": "2026-06-27T06:00:00"
+    },
+    {
+      "id": "M66",
+      "group": "G",
+      "team1": "Новая Зеландия",
+      "team2": "Бельгия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 66,
+      "dateTime": "2026-06-27T06:00:00"
+    },
+    {
+      "id": "M67",
+      "group": "L",
+      "team1": "Панама",
+      "team2": "Англия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 67,
+      "dateTime": "2026-06-28T00:00:00"
+    },
+    {
+      "id": "M68",
+      "group": "L",
+      "team1": "Хорватия",
+      "team2": "Гана",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 68,
+      "dateTime": "2026-06-28T00:00:00"
+    },
+    {
+      "id": "M69",
+      "group": "K",
+      "team1": "ДР Конго",
+      "team2": "Узбекистан",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 69,
+      "dateTime": "2026-06-28T02:30:00"
+    },
+    {
+      "id": "M70",
+      "group": "K",
+      "team1": "Колумбия",
+      "team2": "Португалия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 70,
+      "dateTime": "2026-06-28T02:30:00"
+    },
+    {
+      "id": "M71",
+      "group": "J",
+      "team1": "Алжир",
+      "team2": "Австрия",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 71,
+      "dateTime": "2026-06-28T05:00:00"
+    },
+    {
+      "id": "M72",
+      "group": "J",
+      "team1": "Иордания",
+      "team2": "Аргентина",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "group",
+      "matchOrder": 72,
+      "dateTime": "2026-06-28T05:00:00"
+    }
+  ],
+  "predictions": {},
+  "finals": {},
+  "winners": {},
+  "actualFinals": {},
+  "actualWinners": {}
+}

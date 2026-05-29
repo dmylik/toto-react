@@ -1,0 +1,63 @@
+import { useState } from 'react';
+import { useData } from '../context/DataContext';
+import { useAuth } from '../context/AuthContext';
+import { isPredicationBlocked, formatMatchDateTime } from '../utils/scoring';
+
+export default function MatchCard({ match, onDelete }) {
+  const { savePrediction, getUserPredictions } = useData();
+  const { user } = useAuth();
+  const [score1, setScore1] = useState('');
+  const [score2, setScore2] = useState('');
+  const [saved, setSaved] = useState(false);
+
+  const existingPrediction = getUserPredictions(user?.id)[match.id];
+  const blocked = isPredicationBlocked(match);
+  const isAdmin = user?.role === 'admin';
+  const canPredict = !match.played && !blocked && !isAdmin;
+
+  const handleSave = () => {
+    if (score1 === '' || score2 === '') return;
+    savePrediction(user.id, match.id, score1, score2);
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
+
+  return (
+    <div className={`match-card ${match.played ? 'match-played' : blocked ? 'match-blocked' : ''}`}>
+      <span className="match-date-time">{formatMatchDateTime(match.dateTime)}</span>
+      <span className="match-group-badge">
+        {match.group}{match.stage !== 'group' ? ` · ${match.stage}` : ''}
+      </span>
+      <span className="match-teams-inline">
+        <strong>{match.team1}</strong> vs <strong>{match.team2}</strong>
+      </span>
+
+      {match.played ? (
+        <div className="match-result">
+          <strong className="match-score-large">{match.score1} : {match.score2}</strong>
+          {existingPrediction && (
+            <span className="your-prediction">Ваш: {existingPrediction.score1}:{existingPrediction.score2}</span>
+          )}
+        </div>
+      ) : blocked && !isAdmin ? (
+        <div className="match-blocked-msg">🔒</div>
+      ) : canPredict ? (
+        <div className="match-prediction">
+          <input type="number" min="0" max="20" className="score-input score-input-large"
+            value={score1} onChange={e => setScore1(e.target.value)} />
+          <span className="score-sep">:</span>
+          <input type="number" min="0" max="20" className="score-input score-input-large"
+            value={score2} onChange={e => setScore2(e.target.value)} />
+          <button onClick={handleSave} className="btn-save-prediction">
+            {saved ? '✓' : 'OK'}
+          </button>
+        </div>
+      ) : null}
+
+      {onDelete && (
+        <button className="btn-delete-match" onClick={() => onDelete(match.id)}
+          title="Удалить матч">×</button>
+      )}
+    </div>
+  );
+}
