@@ -119,6 +119,81 @@ a:hover { text-decoration: underline; }
   color: #fca5a5;
 }
 
+/* Hamburger menu button */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: 1px solid #475569;
+  color: #94a3b8;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hamburger-btn:hover {
+  background: #475569;
+  color: #e2e8f0;
+}
+
+/* Slide-out side menu - hidden on desktop, shown on mobile */
+.side-menu-overlay {
+  display: none;
+}
+
+.side-menu {
+  display: none;
+}
+
+.side-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+  margin-bottom: 0.75rem;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.side-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+.side-link:hover, .side-link.active {
+  background: #334155;
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.side-menu-divider {
+  height: 1px;
+  background: #334155;
+  margin: 0.4rem 0.5rem;
+}
+
+.side-logout {
+  margin-top: auto;
+  color: #fca5a5;
+}
+
+.side-logout:hover {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
 .main-content {
   flex: 1;
   padding: 1.5rem;
@@ -1129,13 +1204,6 @@ a:hover { text-decoration: underline; }
 }
 
 /* ===== Playoff Toggle ===== */
-.playoff-toggle-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
 .playoff-toggle {
   font-size: 0.85rem !important;
   padding: 0.4rem 1rem !important;
@@ -1410,18 +1478,86 @@ a:hover { text-decoration: underline; }
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbar-brand a {
+    font-size: 1rem;
   }
 
   .navbar-menu {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
   }
 
   .navbar-user {
-    justify-content: center;
+    margin-left: auto;
+    gap: 0.35rem;
+  }
+
+  .user-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.45rem;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Hide logout on mobile, show hamburger + side menu */
+  .btn-logout {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .side-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .side-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 260px;
+    height: 100vh;
+    background: #1e293b;
+    z-index: 201;
+    transition: right 0.25s ease;
+    padding: 1rem;
+    border-left: 1px solid #334155;
+  }
+
+  .side-menu.open {
+    right: 0;
+  }
+
+  .main-content {
+    padding: 0.75rem;
   }
 
   .groups-grid {
@@ -1462,5 +1598,58 @@ a:hover { text-decoration: underline; }
   .match-teams-inline {
     white-space: normal;
     flex: 0 1 auto;
+  }
+
+  /* Admin table - scrollable on mobile */
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-table thead,
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table th,
+  .admin-table td {
+    white-space: nowrap;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .admin-users h1.page-title {
+    font-size: 1.2rem;
+  }
+
+  /* Filters - wrap on mobile */
+  .matches-filters-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .matches-filter {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .filter-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .group-filter-select {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.72rem;
+    max-width: 110px;
+  }
+
+  .scoring-rules-grid {
+    grid-template-columns: 1fr;
   }
 }

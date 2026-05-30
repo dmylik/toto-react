@@ -82,7 +82,7 @@ export default function LoginPage() {
           <div className="form-field">
             <label>Логин</label>
             <input type="text" value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={e => { setUsername(e.target.value); setShowPassword(false); }}
               placeholder="Введите логин" required />
           </div>
 

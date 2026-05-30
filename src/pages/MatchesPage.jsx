@@ -74,9 +74,7 @@ export default function MatchesPage() {
             ))}
           </select>
         )}
-      </div>
 
-      <div className="playoff-toggle-row">
         <button className={`filter-btn playoff-toggle ${showPlayoff ? 'active' : ''} ${playoffLocked ? 'locked' : ''}`}
           onClick={() => setShowPlayoff(playoffLocked && user?.role !== 'admin' ? false : !showPlayoff)}>
           {playoffLocked && user?.role !== 'admin' ? '🔒 Плей-офф' : '🏆 Плей-офф'}

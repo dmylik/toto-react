@@ -53,3 +53,14 @@ export async function registerUser(fullname, username, password) {
     return { success: false, error: 'Ошибка соединения с сервером' };
   }
 }
+
+export async function fetchAdminUsers() {
+  try {
+    const res = await fetch(`${API_URL}/admin/users`);
+    if (!res.ok) throw new Error('Failed to fetch admin users');
+    return await res.json();
+  } catch (e) {
+    console.error('Failed to fetch admin users:', e);
+    return { users: [] };
+  }
+}

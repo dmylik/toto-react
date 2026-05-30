@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Server runtime data (users, predictions, etc.)
+server/data.json

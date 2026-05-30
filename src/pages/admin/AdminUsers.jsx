@@ -1,12 +1,27 @@
 import { useState } from 'react';
 import { useData } from '../../context/DataContext';
+import { fetchAdminUsers } from '../../utils/storage';
 
 export default function AdminUsers() {
   const { data, approveUser, rejectUser, deleteUser } = useData();
   const [showPasswords, setShowPasswords] = useState(false);
+  const [userPasswords, setUserPasswords] = useState({});
 
   const pendingUsers = data.users.filter(u => u.role === 'user' && u.status === 'pending');
   const approvedUsers = data.users.filter(u => u.role === 'user' && u.status === 'approved');
+
+  const handleTogglePasswords = async () => {
+    if (!showPasswords) {
+      // Fetch passwords from admin endpoint
+      const result = await fetchAdminUsers();
+      const pwMap = {};
+      (result.users || []).forEach(u => {
+        pwMap[u.id] = u.password;
+      });
+      setUserPasswords(pwMap);
+    }
+    setShowPasswords(!showPasswords);
+  };
 
   const handleApprove = (userId) => {
     approveUser(userId);
@@ -59,7 +74,7 @@ export default function AdminUsers() {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
         <h2 className="page-subtitle" style={{ marginBottom: 0 }}>Участники ({approvedUsers.length})</h2>
-        <button className="btn-small" onClick={() => setShowPasswords(!showPasswords)}>
+        <button className="btn-small" onClick={handleTogglePasswords}>
           {showPasswords ? '🙈 Скрыть пароли' : '👁 Показать пароли'}
         </button>
       </div>
@@ -82,7 +97,7 @@ export default function AdminUsers() {
                 <td className="cell-id">{u.id.slice(0, 12)}...</td>
                 <td>{u.fullname || u.username}</td>
                 <td>{u.username}</td>
-                {showPasswords && <td className="cell-id">{u.password}</td>}
+                {showPasswords && <td className="cell-id">{userPasswords[u.id] || '(нет)'}</td>}
                 <td>{predictionCount}</td>
                 <td>
                   <button className="btn-danger-small" onClick={() => handleDelete(u.id)}>Удалить</button>

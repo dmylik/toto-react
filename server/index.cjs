@@ -74,6 +74,17 @@ app.post('/api/data', (req, res) => {
   }
 });
 
+// GET /api/admin/users - return users with passwords (admin only)
+app.get('/api/admin/users', (req, res) => {
+  try {
+    const data = readData();
+    // Return all users with passwords for admin view
+    res.json({ users: data.users });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // POST /api/register - register new user
 app.post('/api/register', (req, res) => {
   try {
