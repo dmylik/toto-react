@@ -7,6 +7,7 @@ import {
   getScoringConfig,
   SCORING_LABELS,
 } from '../utils/scoring';
+import ScoreDistributionChart from '../components/ScoreDistributionChart';
 
 export default function StatisticsPage() {
   const { data } = useData();
@@ -39,6 +40,8 @@ export default function StatisticsPage() {
 
       {!detailUserId ? (
         <>
+          <ScoreDistributionChart data={data} />
+
           <table className="leaderboard-table">
             <thead>
               <tr>

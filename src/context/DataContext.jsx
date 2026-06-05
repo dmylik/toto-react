@@ -66,7 +66,14 @@ export function DataProvider({ children }) {
   // Matches
   const deleteMatch = useCallback(async (matchId) => {
     if (!data) return;
+    // Remove match
     data.matches = data.matches.filter(m => m.id !== matchId);
+    // Clean up predictions for this match across all users
+    for (const userId of Object.keys(data.predictions)) {
+      if (data.predictions[userId][matchId]) {
+        delete data.predictions[userId][matchId];
+      }
+    }
     await updateData(data);
   }, [data, updateData]);
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useData } from '../../context/DataContext';
 
 export default function AdminMatches() {
-  const { data, updateMatchScore, addMatch, setActualFinals, setActualWinners } = useData();
+  const { data, updateMatchScore, addMatch, setActualFinals, setActualWinners, deleteMatch } = useData();
   const [scores, setScores] = useState({});
   const [finals, setFinals] = useState({});
   const [winners, setWinners] = useState({
@@ -84,6 +84,12 @@ export default function AdminMatches() {
     setNewMatch({ team1: '', team2: '', group: '', dateTime: '', stage: 'playoff' });
   };
 
+  const handleDeleteMatch = (matchId) => {
+    if (window.confirm('Вы уверены, что хотите удалить этот матч? Это также удалит все прогнозы для этого матча.')) {
+      deleteMatch(matchId);
+    }
+  };
+
   return (
     <div className="admin-matches">
       <h1 className="page-title">⚽ Управление матчами</h1>
@@ -123,6 +129,9 @@ export default function AdminMatches() {
                   <button className="btn-small" onClick={() => handleSaveScore(match)}>
                     {match.played ? 'Обн.' : 'OK'}
                   </button>
+                  <button className="btn-delete-match" onClick={() => handleDeleteMatch(match.id)} title="Удалить матч">
+                    ✕
+                  </button>
                 </div>
               </div>
             ))}
@@ -154,6 +163,9 @@ export default function AdminMatches() {
                   onChange={e => handleScoreChange(match.id, 'score2', e.target.value)} />
                 <button className="btn-small" onClick={() => handleSaveScore(match)}>
                   {match.played ? 'Обн.' : 'OK'}
+                </button>
+                <button className="btn-delete-match" onClick={() => handleDeleteMatch(match.id)} title="Удалить матч">
+                  ✕
                 </button>
               </div>
             </div>
