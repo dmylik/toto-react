@@ -6,13 +6,16 @@ import { isPredicationBlocked, formatMatchDateTime } from '../utils/scoring';
 export default function MatchCard({ match, onDelete }) {
   const { savePrediction, getUserPredictions } = useData();
   const { user } = useAuth();
-  const [score1, setScore1] = useState('');
-  const [score2, setScore2] = useState('');
-  const [saved, setSaved] = useState(false);
 
   const existingPrediction = getUserPredictions(user?.id)[match.id];
   const blocked = isPredicationBlocked(match);
   const isAdmin = user?.role === 'admin';
+  const hasPrediction = !!existingPrediction;
+
+  const [score1, setScore1] = useState(existingPrediction?.score1?.toString() ?? '');
+  const [score2, setScore2] = useState(existingPrediction?.score2?.toString() ?? '');
+  const [saved, setSaved] = useState(false);
+
   const canPredict = !match.played && !blocked && !isAdmin;
 
   const handleSave = () => {
@@ -40,7 +43,13 @@ export default function MatchCard({ match, onDelete }) {
           )}
         </div>
       ) : blocked && !isAdmin ? (
-        <div className="match-blocked-msg">🔒</div>
+        hasPrediction ? (
+          <div className="match-prediction match-prediction-saved">
+            <span className="your-prediction">Ваш прогноз: <strong>{existingPrediction.score1}:{existingPrediction.score2}</strong></span>
+          </div>
+        ) : (
+          <div className="match-blocked-msg">🔒</div>
+        )
       ) : canPredict ? (
         <div className="match-prediction">
           <input type="number" min="0" max="20" className="score-input score-input-large"
@@ -49,7 +58,7 @@ export default function MatchCard({ match, onDelete }) {
           <input type="number" min="0" max="20" className="score-input score-input-large"
             value={score2} onChange={e => setScore2(e.target.value)} />
           <button onClick={handleSave} className="btn-save-prediction">
-            {saved ? '✓' : 'OK'}
+            {saved ? '✓' : hasPrediction ? '✎' : 'OK'}
           </button>
         </div>
       ) : null}

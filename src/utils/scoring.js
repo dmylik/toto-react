@@ -139,11 +139,20 @@ export function calculateWinnersScore(userWinners, actualWinners, scoringConfig)
   return { total, details };
 }
 
+// ===== Helper: check if all group stage matches are played =====
+
+export function areAllGroupMatchesPlayed(data) {
+  const groupMatches = (data.matches || []).filter(m => m.stage === 'group');
+  if (groupMatches.length === 0) return false;
+  return groupMatches.every(m => m.played);
+}
+
 // ===== Total Score =====
 
 export function calculateTotalScore(userId, data) {
   const cfg = getScoringConfig(data);
   let total = 0;
+  const allGroupPlayed = areAllGroupMatchesPlayed(data);
 
   // Match predictions
   const userPredictions = data.predictions[userId] || {};
@@ -154,15 +163,19 @@ export function calculateTotalScore(userId, data) {
     }
   }
 
-  // Finals predictions
-  const actualFinals = data.actualFinals || {};
-  const userFinals = data.finals[userId] || {};
-  total += calculateFinalsScore(userFinals, actualFinals, cfg).total;
+  // Finals predictions — начисляются только после завершения всех матчей группового этапа
+  if (allGroupPlayed) {
+    const actualFinals = data.actualFinals || {};
+    const userFinals = data.finals[userId] || {};
+    total += calculateFinalsScore(userFinals, actualFinals, cfg).total;
+  }
 
-  // Winners prediction
-  const actualWinners = data.actualWinners || {};
-  const userWinners = data.winners[userId] || {};
-  total += calculateWinnersScore(userWinners, actualWinners, cfg).total;
+  // Winners prediction — начисляются только после завершения всех матчей группового этапа
+  if (allGroupPlayed) {
+    const actualWinners = data.actualWinners || {};
+    const userWinners = data.winners[userId] || {};
+    total += calculateWinnersScore(userWinners, actualWinners, cfg).total;
+  }
 
   return total;
 }
@@ -171,6 +184,7 @@ export function calculateTotalScore(userId, data) {
 
 export function getDetailedScoreHistory(userId, data) {
   const cfg = getScoringConfig(data);
+  const allGroupPlayed = areAllGroupMatchesPlayed(data);
   const history = {
     userId,
     matchScores: [],
@@ -199,20 +213,24 @@ export function getDetailedScoreHistory(userId, data) {
     }
   }
 
-  // Finals
-  const actualFinals = data.actualFinals || {};
-  const userFinals = data.finals[userId] || {};
-  const finalsResult = calculateFinalsScore(userFinals, actualFinals, cfg);
-  if (finalsResult.details.length > 0) {
-    history.finalsScore = { total: finalsResult.total, details: finalsResult.details };
+  // Finals — начисляются только после завершения всех матчей группового этапа
+  if (allGroupPlayed) {
+    const actualFinals = data.actualFinals || {};
+    const userFinals = data.finals[userId] || {};
+    const finalsResult = calculateFinalsScore(userFinals, actualFinals, cfg);
+    if (finalsResult.details.length > 0) {
+      history.finalsScore = { total: finalsResult.total, details: finalsResult.details };
+    }
   }
 
-  // Winners
-  const actualWinners = data.actualWinners || {};
-  const userWinners = data.winners[userId] || {};
-  const winnersResult = calculateWinnersScore(userWinners, actualWinners, cfg);
-  if (winnersResult.details.length > 0) {
-    history.winnersScore = { total: winnersResult.total, details: winnersResult.details };
+  // Winners — начисляются только после завершения всех матчей группового этапа
+  if (allGroupPlayed) {
+    const actualWinners = data.actualWinners || {};
+    const userWinners = data.winners[userId] || {};
+    const winnersResult = calculateWinnersScore(userWinners, actualWinners, cfg);
+    if (winnersResult.details.length > 0) {
+      history.winnersScore = { total: winnersResult.total, details: winnersResult.details };
+    }
   }
 
   history.total =

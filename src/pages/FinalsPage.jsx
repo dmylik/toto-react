@@ -1,6 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
+import GroupFinals from '../components/GroupFinals';
 
 export default function FinalsPage() {
   const { data, saveFinals, getUserFinals } = useData();
@@ -19,53 +20,11 @@ export default function FinalsPage() {
     );
   }
 
-  // Per-group selection
-  const GroupFinals = ({ groupKey }) => {
-    const group = data.groups[groupKey];
-    const [selected, setSelected] = useState(() => existingFinals[groupKey] || []);
-
-    const toggleTeam = (team) => {
-      setSelected(prev => {
-        const idx = prev.indexOf(team);
-        if (idx >= 0) return prev.filter(t => t !== team);
-        if (prev.length < 2) return [...prev, team];
-        return prev;
-      });
-    };
-
-    const handleSave = () => {
-      const allFinals = { ...existingFinals, [groupKey]: selected };
-      saveFinals(user.id, allFinals);
-      setSavedGroup(groupKey);
-      setTimeout(() => setSavedGroup(null), 2000);
-    };
-
-    return (
-      <div className="finals-group-card">
-        <h3>{group.name}</h3>
-        <div className="finals-teams">
-          {group.teams.map(team => {
-            const isSelected = selected.includes(team);
-            return (
-              <button key={team}
-                className={`finals-team-btn ${isSelected ? 'selected' : ''}`}
-                onClick={() => toggleTeam(team)}>
-                {team}
-                {isSelected && <span className="check-mark">✓</span>}
-              </button>
-            );
-          })}
-        </div>
-        <div className="finals-group-actions">
-          <span className="finals-count">Выбрано: {selected.length}/2</span>
-          <button className="btn-small btn-save-group"
-            onClick={handleSave}
-            disabled={selected.length !== 2}>
-            {savedGroup === groupKey ? '✓' : 'Сохранить'}
-          </button>
-        </div>
-      </div>
-    );
+  const handleSaveGroup = (groupKey, selected) => {
+    const allFinals = { ...existingFinals, [groupKey]: selected };
+    saveFinals(user.id, allFinals);
+    setSavedGroup(groupKey);
+    setTimeout(() => setSavedGroup(null), 2000);
   };
 
   return (
@@ -73,9 +32,17 @@ export default function FinalsPage() {
       <h1 className="page-title">🎯 Выбор финалистов групп</h1>
       <p className="page-subtitle">Выберите по 2 команды из каждой группы, которые пройдут в плей-офф</p>
 
+      {savedGroup && <p className="toast-success">Группа {savedGroup} ✓</p>}
+
       <div className="finals-grid">
         {Object.keys(data.groups).map(key => (
-          <GroupFinals key={key} groupKey={key} />
+          <GroupFinals
+            key={key}
+            groupKey={key}
+            group={data.groups[key]}
+            existingFinals={existingFinals}
+            onSave={handleSaveGroup}
+          />
         ))}
       </div>
     </div>

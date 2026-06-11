@@ -4,8 +4,9 @@ import { useAuth } from '../context/AuthContext';
 import MatchCard from '../components/MatchCard';
 
 export default function MatchesPage() {
-  const { data, getSortedMatches, deleteMatch } = useData();
+  const { data, getSortedMatches, deleteMatch, getUserPredictions } = useData();
   const { user } = useAuth();
+  const userPredictions = getUserPredictions(user?.id);
   const [filter, setFilter] = useState('upcoming');
   const [groupFilter, setGroupFilter] = useState('all');
   const [showPlayoff, setShowPlayoff] = useState(false);
@@ -21,10 +22,15 @@ export default function MatchesPage() {
 
   const filteredMatches = useMemo(() => {
     const now = Date.now();
+    const FORTY_EIGHT_HOURS = 48 * 60 * 60 * 1000;
     let matches = showPlayoff ? playoffMatches : groupMatches;
 
     if (filter === 'upcoming') {
-      matches = matches.filter(m => !m.played && new Date(m.dateTime).getTime() > now);
+      matches = matches.filter(m => {
+        if (m.played) return false;
+        const matchTime = new Date(m.dateTime).getTime();
+        return matchTime > now && matchTime - now <= FORTY_EIGHT_HOURS;
+      });
     } else if (filter === 'today') {
       const today = new Date().toISOString().slice(0, 10);
       matches = matches.filter(m => m.dateTime && m.dateTime.startsWith(today));
@@ -93,7 +99,7 @@ export default function MatchesPage() {
       ) : (
         <div className="matches-grid">
           {filteredMatches.map(m => (
-            <MatchCard key={m.id} match={m}
+            <MatchCard key={m.id + '-' + (userPredictions?.[m.id] ? 'p' : 'np')} match={m}
               onDelete={user?.role === 'admin' ? handleDelete : undefined} />
           ))}
         </div>
