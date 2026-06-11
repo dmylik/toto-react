@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useData } from '../../context/DataContext';
 
 export default function AdminMatches() {
-  const { data, updateMatchScore, addMatch, setActualFinals, setActualWinners, deleteMatch } = useData();
+  const { data, updateMatchScore, addMatch, setActualFinals, setActualWinners, deleteMatch, savePrediction } = useData();
   const [scores, setScores] = useState({});
   const [finals, setFinals] = useState({});
   const [winners, setWinners] = useState({
@@ -12,6 +12,8 @@ export default function AdminMatches() {
   });
   const [finalsSaved, setFinalsSaved] = useState(false);
   const [winnersSaved, setWinnersSaved] = useState(false);
+  const [autoFillMsg, setAutoFillMsg] = useState(null);
+  const [autoFillGlobalMsg, setAutoFillGlobalMsg] = useState(null);
 
   // New match form
   const [newMatch, setNewMatch] = useState({
@@ -20,6 +22,7 @@ export default function AdminMatches() {
 
   const groupKeys = Object.keys(data.groups);
   const sortedMatches = [...(data.matches || [])].sort((a, b) => (a.matchOrder || 0) - (b.matchOrder || 0));
+  const approvedUsers = data.users.filter(u => u.role === 'user' && u.status === 'approved');
 
   const handleScoreChange = (matchId, field, value) => {
     setScores(prev => ({
@@ -33,6 +36,32 @@ export default function AdminMatches() {
     const score1 = s.score1 !== undefined ? s.score1 : match.score1;
     const score2 = s.score2 !== undefined ? s.score2 : match.score2;
     updateMatchScore(match.id, score1, score2);
+  };
+
+  const getMissingUsers = (matchId) => {
+    return approvedUsers.filter(u => !data.predictions[u.id]?.[matchId]);
+  };
+
+  const handleAutoFillMatch = (matchId) => {
+    const missing = getMissingUsers(matchId);
+    missing.forEach(u => {
+      savePrediction(u.id, matchId, 0, 0);
+    });
+    setAutoFillMsg({ matchId, count: missing.length });
+    setTimeout(() => setAutoFillMsg(null), 3000);
+  };
+
+  const handleAutoFillAllPlayed = () => {
+    let total = 0;
+    sortedMatches.filter(m => m.played).forEach(match => {
+      const missing = getMissingUsers(match.id);
+      missing.forEach(u => {
+        savePrediction(u.id, match.id, 0, 0);
+      });
+      total += missing.length;
+    });
+    setAutoFillGlobalMsg(total);
+    setTimeout(() => setAutoFillGlobalMsg(null), 3000);
   };
 
   // Group matches
@@ -129,15 +158,30 @@ export default function AdminMatches() {
                   <button className="btn-small" onClick={() => handleSaveScore(match)}>
                     {match.played ? 'Обн.' : 'OK'}
                   </button>
+                  <button className="btn-small btn-auto-fill"
+                    onClick={() => handleAutoFillMatch(match.id)}
+                    title="Заполнить прогнозы 0:0 для тех, кто не поставил">
+                    0:0
+                  </button>
                   <button className="btn-delete-match" onClick={() => handleDeleteMatch(match.id)} title="Удалить матч">
                     ✕
                   </button>
                 </div>
+                {autoFillMsg?.matchId === match.id && (
+                  <div className="auto-fill-toast">
+                    Заполнено {autoFillMsg.count} прогнозов 0:0
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       ))}
+      {autoFillGlobalMsg !== null && (
+        <div className="auto-fill-toast global">
+          Заполнено {autoFillGlobalMsg} пропущенных прогнозов 0:0
+        </div>
+      )}
 
       <hr className="section-divider" />
 
@@ -164,12 +208,31 @@ export default function AdminMatches() {
                 <button className="btn-small" onClick={() => handleSaveScore(match)}>
                   {match.played ? 'Обн.' : 'OK'}
                 </button>
+                <button className="btn-small btn-auto-fill"
+                  onClick={() => handleAutoFillMatch(match.id)}
+                  title="Заполнить прогнозы 0:0 для тех, кто не поставил">
+                  0:0
+                </button>
                 <button className="btn-delete-match" onClick={() => handleDeleteMatch(match.id)} title="Удалить матч">
                   ✕
                 </button>
               </div>
+              {autoFillMsg?.matchId === match.id && (
+                <div className="auto-fill-toast">
+                  Заполнено {autoFillMsg.count} прогнозов 0:0
+                </div>
+              )}
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Auto-fill all played matches */}
+      {sortedMatches.some(m => m.played) && (
+        <div style={{ marginBottom: '1rem' }}>
+          <button className="btn-small btn-auto-fill-all" onClick={handleAutoFillAllPlayed}>
+            🔄 Заполнить все пропущенные прогнозы (0:0) для сыгранных матчей
+          </button>
         </div>
       )}
 
