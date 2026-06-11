@@ -28,12 +28,13 @@ export default function AdminPredictions() {
   const userPredictions = useMemo(() => {
     if (!selectedUserId) return [];
     const preds = data.predictions[selectedUserId] || {};
-    return Object.entries(preds)
-      .map(([matchId, pred]) => {
-        const match = data.matches.find(m => m.id === matchId);
-        return { matchId, pred, match };
-      })
-      .filter(item => item.match)
+    const allMatches = data.matches || [];
+    return allMatches
+      .map(match => ({
+        matchId: match.id,
+        pred: preds[match.id] || null,
+        match,
+      }))
       .sort((a, b) => (a.match.matchOrder || 0) - (b.match.matchOrder || 0));
   }, [selectedUserId, data]);
 
@@ -184,14 +185,15 @@ export default function AdminPredictions() {
           {activeTab === 'predictions' && (
             <div className="admin-pred-section">
               {userPredictions.length === 0 ? (
-                <p className="empty-state">Пользователь ещё не сделал ни одного прогноза</p>
+                <p className="empty-state">Нет матчей</p>
               ) : (
                 <div className="admin-pred-matches-list">
                   {userPredictions.map(({ matchId, pred, match }) => {
-                    const score = calculateMatchScore(pred, match, cfg);
+                    const hasPred = pred !== null;
+                    const score = hasPred ? calculateMatchScore(pred, match, cfg) : null;
                     const editPred = editPredictions[matchId] || {};
                     return (
-                      <div key={matchId} className={`admin-pred-match-row ${match.played ? 'settled' : ''}`}>
+                      <div key={matchId} className={`admin-pred-match-row ${match.played ? 'settled' : ''} ${!hasPred ? 'no-pred' : ''}`}>
                         <div className="admin-pred-match-info">
                           <span className="match-group-badge">{match.group}</span>
                           <span className="match-order">Матч #{match.matchOrder}</span>
@@ -205,7 +207,7 @@ export default function AdminPredictions() {
                               min="0"
                               max="20"
                               className="score-input"
-                              value={editPred.score1 !== undefined ? editPred.score1 : pred.score1}
+                              value={editPred.score1 !== undefined ? editPred.score1 : (hasPred ? pred.score1 : '')}
                               onChange={e => handlePredictionChange(matchId, 'score1', e.target.value)}
                             />
                             <span className="score-sep">:</span>
@@ -214,7 +216,7 @@ export default function AdminPredictions() {
                               min="0"
                               max="20"
                               className="score-input"
-                              value={editPred.score2 !== undefined ? editPred.score2 : pred.score2}
+                              value={editPred.score2 !== undefined ? editPred.score2 : (hasPred ? pred.score2 : '')}
                               onChange={e => handlePredictionChange(matchId, 'score2', e.target.value)}
                             />
                             <button
@@ -224,7 +226,10 @@ export default function AdminPredictions() {
                               {predictionSaved === matchId ? '✓' : 'Сохранить'}
                             </button>
                           </div>
-                          {match.played && (
+                          {!hasPred && (
+                            <span className="admin-pred-pending no-pred-msg">❌ Нет прогноза</span>
+                          )}
+                          {hasPred && match.played && (
                             <div className="admin-pred-result">
                               <span className="admin-pred-actual">Результат: {match.score1}:{match.score2}</span>
                               <span className={`score-points ${score.total > 0 ? 'points-earned' : ''}`}>
@@ -232,7 +237,7 @@ export default function AdminPredictions() {
                               </span>
                             </div>
                           )}
-                          {!match.played && (
+                          {hasPred && !match.played && (
                             <span className="admin-pred-pending">⏳ Ожидает результата</span>
                           )}
                         </div>

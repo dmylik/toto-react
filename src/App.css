@@ -1975,7 +1975,17 @@ a:hover { text-decoration: underline; }
     color: #64748b;
     font-size: 0.8rem;
   }
-  
+
+  .admin-pred-match-row.no-pred {
+    border-left: 3px solid #f59e0b;
+    opacity: 0.85;
+  }
+
+  .no-pred-msg {
+    color: #ef4444 !important;
+    font-weight: 600;
+  }
+
   /* Admin Predictions - Finals */
   .admin-pred-finals-grid {
     display: grid;
