@@ -744,10 +744,16 @@ a:hover { text-decoration: underline; }
 }
 
 /* ===== Statistics ===== */
-.leaderboard-table {
+.leaderboard-table-wrapper {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.leaderboard-table {
+  width: 100%;
   border-collapse: collapse;
   background: #1e293b;
   border-radius: 8px;
@@ -1744,6 +1750,299 @@ a:hover { text-decoration: underline; }
   .matches-filter {
     flex-wrap: wrap;
     gap: 0.25rem;
+  }
+  
+  /* ===== Admin Predictions ===== */
+  .admin-pred-user-select {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    flex-wrap: wrap;
+  }
+  
+  .admin-pred-user-select label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  
+  .admin-pred-select {
+    padding: 0.5rem 0.75rem;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 200px;
+    cursor: pointer;
+  }
+  
+  .admin-pred-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+  
+  .admin-pred-user-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-pred-user-header h2 {
+    color: #fbbf24;
+    font-size: 1.2rem;
+  }
+  
+  .admin-pred-tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 0.25rem;
+    overflow-x: auto;
+  }
+  
+  .admin-pred-tab {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  
+  .admin-pred-tab:hover {
+    color: #e2e8f0;
+    background: #334155;
+  }
+  
+  .admin-pred-tab.active {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  .admin-pred-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .admin-pred-matches-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .admin-pred-match-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    background: #1e293b;
+    border-radius: 6px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .admin-pred-match-row.settled {
+    border-left: 3px solid #22c55e;
+  }
+  
+  .admin-pred-match-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .admin-pred-teams {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+  }
+  
+  .admin-pred-scores {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .admin-pred-user-score {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  
+  .admin-pred-label {
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+  }
+  
+  .admin-pred-user-score .score-input {
+    width: 2.2rem;
+    padding: 0.25rem;
+    font-size: 0.85rem;
+  }
+  
+  .btn-save-pred {
+    background: #22c55e !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+  }
+  
+  .btn-save-pred:hover {
+    background: #16a34a !important;
+  }
+  
+  .admin-pred-result {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .admin-pred-actual {
+    color: #94a3b8;
+  }
+  
+  .admin-pred-pending {
+    color: #64748b;
+    font-size: 0.8rem;
+  }
+  
+  /* Admin Predictions - Finals */
+  .admin-pred-finals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-pred-finals-card {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 0.75rem;
+  }
+  
+  .admin-pred-finals-card h3 {
+    color: #fbbf24;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .admin-pred-finals-teams {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .admin-pred-finals-team {
+    padding: 0.35rem 0.5rem;
+    background: #0f172a;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .admin-pred-finals-team.selected {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    font-weight: 600;
+  }
+  
+  .admin-pred-finals-selects {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .admin-pred-finals-selects .admin-pred-select {
+    min-width: auto;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.5rem;
+  }
+  
+  .admin-pred-edit-btn {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .admin-pred-edit-finals-section,
+  .admin-pred-edit-winner {
+    max-width: 700px;
+  }
+  
+  .admin-pred-edit-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .admin-pred-edit-actions .btn-primary {
+    width: auto;
+    padding: 0.6rem 1.5rem;
+  }
+  
+  .btn-cancel {
+    background: #475569 !important;
+  }
+  
+  .btn-cancel:hover {
+    background: #64748b !important;
+  }
+  
+  .admin-pred-winner-display {
+    text-align: center;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-pred-winner-display p {
+    font-size: 1.2rem;
+    margin: 0.3rem 0;
+    color: #fbbf24;
+  }
+  
+  /* ===== Finals Read-Only ===== */
+  .finals-team-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  
+  .finals-team-display.selected {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+    color: #60a5fa;
+    font-weight: 600;
+  }
+  
+  .finals-team-display.not-selected {
+    opacity: 0.5;
+  }
+  
+  .finals-group-card.read-only {
+    border: 1px solid #334155;
   }
 
   .filter-btn {

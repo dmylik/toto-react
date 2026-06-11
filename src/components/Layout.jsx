@@ -44,9 +44,14 @@ export default function Layout() {
             Статистика
           </NavLink>
           {user?.role === 'admin' && (
-            <NavLink to="/admin" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-              Админ
-            </NavLink>
+            <>
+              <NavLink to="/admin" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                Админ
+              </NavLink>
+              <NavLink to="/admin/predictions" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                Прогнозы
+              </NavLink>
+            </>
           )}
         </div>
         <div className="navbar-user">
@@ -89,9 +94,14 @@ export default function Layout() {
           📈 Статистика
         </NavLink>
         {user?.role === 'admin' && (
-          <NavLink to="/admin" onClick={closeMenu} className={({ isActive }) => isActive ? 'side-link active' : 'side-link'}>
-            ⚙️ Админ
-          </NavLink>
+          <>
+            <NavLink to="/admin" onClick={closeMenu} className={({ isActive }) => isActive ? 'side-link active' : 'side-link'}>
+              ⚙️ Админ
+            </NavLink>
+            <NavLink to="/admin/predictions" onClick={closeMenu} className={({ isActive }) => isActive ? 'side-link active' : 'side-link'}>
+              📊 Прогнозы
+            </NavLink>
+          </>
         )}
         <button onClick={() => { closeMenu(); handleLogout(); }} className="side-link side-logout">
           🚪 Выйти

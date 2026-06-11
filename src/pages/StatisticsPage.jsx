@@ -42,6 +42,7 @@ export default function StatisticsPage() {
         <>
           <ScoreDistributionChart data={data} />
 
+          <div className="leaderboard-table-wrapper">
           <table className="leaderboard-table">
             <thead>
               <tr>
@@ -76,6 +77,7 @@ export default function StatisticsPage() {
               ))}
             </tbody>
           </table>
+          </div>
 
           <div className="scoring-rules-box">
             <h3>📐 Правила начисления очков</h3>

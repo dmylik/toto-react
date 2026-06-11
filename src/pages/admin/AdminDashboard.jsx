@@ -20,6 +20,11 @@ export default function AdminDashboard() {
           <h3>Настройки блокировок</h3>
           <p>Включение/отключение функций</p>
         </NavLink>
+        <NavLink to="/admin/predictions" className="admin-card">
+          <div className="admin-card-icon">📊</div>
+          <h3>Прогнозы</h3>
+          <p>Просмотр и редактирование прогнозов пользователей</p>
+        </NavLink>
       </div>
     </div>
   );

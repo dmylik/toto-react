@@ -14,6 +14,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminMatches from './pages/admin/AdminMatches';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminSettings from './pages/admin/AdminSettings';
+import AdminPredictions from './pages/admin/AdminPredictions';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                 <Route path="matches" element={<AdminMatches />} />
                 <Route path="users" element={<AdminUsers />} />
                 <Route path="settings" element={<AdminSettings />} />
+                <Route path="predictions" element={<AdminPredictions />} />
               </Route>
             </Route>
           </Routes>

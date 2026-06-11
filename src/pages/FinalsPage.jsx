@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import GroupFinals from '../components/GroupFinals';
+import GroupFinalsReadOnly from '../components/GroupFinalsReadOnly';
 
 export default function FinalsPage() {
   const { data, saveFinals, getUserFinals } = useData();
@@ -12,10 +13,33 @@ export default function FinalsPage() {
   const [savedGroup, setSavedGroup] = useState(null);
 
   if (isLocked) {
+    const hasFinals = Object.keys(existingFinals).length > 0;
     return (
-      <div className="page-message">
-        <h2>🔒 Выбор финалистов заблокирован</h2>
-        <p>Администратор временно отключил возможность выбора финалистов.</p>
+      <div className="finals-page">
+        <div className="page-message" style={{ marginBottom: '1.5rem' }}>
+          <h2>🔒 Выбор финалистов заблокирован</h2>
+          <p>Администратор временно отключил возможность выбора финалистов.</p>
+        </div>
+
+        {hasFinals ? (
+          <>
+            <h2 className="page-subtitle" style={{ textAlign: 'center', color: '#94a3b8' }}>
+              Ваш выбор финалистов групп:
+            </h2>
+            <div className="finals-grid">
+              {Object.keys(data.groups).map(key => (
+                <GroupFinalsReadOnly
+                  key={key}
+                  groupKey={key}
+                  group={data.groups[key]}
+                  existingFinals={existingFinals}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <p className="empty-state">Вы не успели выбрать финалистов до блокировки.</p>
+        )}
       </div>
     );
   }
