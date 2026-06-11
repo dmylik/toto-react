@@ -7,7 +7,7 @@ export const DEFAULT_SCORING = {
   exactScore: 1,         // Полностью угадан счёт
   groupFinalist: 1,      // Угадан финалист группы
   finalist: 15,          // Угадана команда-финалист
-  champion: 25,          // Угадан победитель турнира
+  champion: 15,          // Угадан победитель турнира (+15 дополнительно к +15 за финалиста)
   thirdPlace: 10,        // Угадано 3 место
 };
 
@@ -122,15 +122,23 @@ export function calculateWinnersScore(userWinners, actualWinners, scoringConfig)
 
   const details = [];
 
-  // Champion
+  // Финалисты (1-е и 2-е место) — +15 за каждую угаданную команду в финале,
+  // независимо от того, на каком именно месте (1-м или 2-м) она оказалась
+  const userFinalists = [userWinners.first, userWinners.second].filter(Boolean);
+  const actualFinalists = [actualWinners.first, actualWinners.second].filter(Boolean);
+
+  for (const userTeam of userFinalists) {
+    if (actualFinalists.includes(userTeam)) {
+      details.push({ rule: 'finalist', points: cfg.finalist, team: userTeam });
+    }
+  }
+
+  // Победитель турнира (1-е место) — дополнительно +15 сверху (+15 за финалиста +15 за чемпиона = +30)
   if (userWinners.first && userWinners.first === actualWinners.first) {
     details.push({ rule: 'champion', points: cfg.champion, team: userWinners.first });
   }
-  // Finalist (2nd)
-  if (userWinners.second && userWinners.second === actualWinners.second) {
-    details.push({ rule: 'finalist', points: cfg.finalist, team: userWinners.second });
-  }
-  // 3rd place
+
+  // 3-е место — +10
   if (userWinners.third && userWinners.third === actualWinners.third) {
     details.push({ rule: 'thirdPlace', points: cfg.thirdPlace, team: userWinners.third });
   }
@@ -283,7 +291,7 @@ export const SCORING_LABELS = {
   offByOne: 'Отличие на 1 гол',
   exactScore: 'Точный счёт',
   groupFinalist: 'Финалист группы',
-  finalist: 'Финалист турнира',
-  champion: 'Победитель турнира',
+  finalist: 'Финалист турнира (любая позиция 1-2)',
+  champion: 'Победитель турнира (дополнительно к финалисту)',
   thirdPlace: '3-е место',
 };
