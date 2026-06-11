@@ -66,7 +66,9 @@ export function DataProvider({ children }) {
   // Matches
   const deleteMatch = useCallback(async (matchId) => {
     if (!data) return;
-    // Remove match
+    // Signal server to remove this match via _deletedMatchIds
+    data._deletedMatchIds = [...(data._deletedMatchIds || []), matchId];
+    // Remove match from local state
     data.matches = data.matches.filter(m => m.id !== matchId);
     // Clean up predictions for this match across all users
     for (const userId of Object.keys(data.predictions)) {
@@ -75,6 +77,8 @@ export function DataProvider({ children }) {
       }
     }
     await updateData(data);
+    // Clean up after save
+    delete data._deletedMatchIds;
   }, [data, updateData]);
 
   const updateMatchScore = useCallback(async (matchId, score1, score2) => {
@@ -148,6 +152,7 @@ export function DataProvider({ children }) {
     const user = data.users.find(u => u.id === userId);
     if (user) {
       user.status = 'approved';
+      // Keep password if it exists, otherwise mark for server to preserve
       await updateData(data);
       window.dispatchEvent(new Event('toto-data-changed'));
     }
@@ -155,18 +160,26 @@ export function DataProvider({ children }) {
 
   const rejectUser = useCallback(async (userId) => {
     if (!data) return;
+    // Signal server to remove this user via _deletedUserIds
+    data._deletedUserIds = [...(data._deletedUserIds || []), userId];
     data.users = data.users.filter(u => u.id !== userId);
     await updateData(data);
+    // Clean up after save
+    delete data._deletedUserIds;
     window.dispatchEvent(new Event('toto-data-changed'));
   }, [data, updateData]);
 
   const deleteUser = useCallback(async (userId) => {
     if (!data) return;
+    // Signal server to remove this user via _deletedUserIds
+    data._deletedUserIds = [...(data._deletedUserIds || []), userId];
     data.users = data.users.filter(u => u.id !== userId);
     delete data.predictions[userId];
     delete data.finals[userId];
     delete data.winners[userId];
     await updateData(data);
+    // Clean up after save
+    delete data._deletedUserIds;
   }, [data, updateData]);
 
   // Actual results (admin)

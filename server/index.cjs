@@ -49,26 +49,132 @@ app.get('/api/data', (req, res) => {
   }
 });
 
-// POST /api/data - save full data
+// POST /api/data - save full data (with merge to prevent data loss)
 app.post('/api/data', (req, res) => {
   try {
     const newData = req.body;
-    // Merge with existing to preserve passwords
     const existing = readData();
-    
-    // Preserve passwords: for each user in new data, keep existing password
+
+    // --- Handle deletions requested by frontend ---
+    const deletedUserIds = newData._deletedUserIds || [];
+    const deletedMatchIds = newData._deletedMatchIds || [];
+    // Clean up internal markers
+    delete newData._deletedUserIds;
+    delete newData._deletedMatchIds;
+
+    // --- Users merge (always preserve all existing users) ---
+    const mergedUsers = [];
+
+    // 1. Copy existing users, skipping those marked for deletion
+    existing.users.forEach(existingUser => {
+      if (!deletedUserIds.includes(existingUser.id)) {
+        mergedUsers.push({ ...existingUser });
+      }
+    });
+
+    // 2. Apply frontend changes on top (status changes, new fields, etc.)
     if (newData.users) {
-      newData.users = newData.users.map(newUser => {
-        const existingUser = existing.users.find(u => u.id === newUser.id);
-        if (existingUser) {
-          return { ...newUser, password: existingUser.password };
+      newData.users.forEach(newUser => {
+        const idx = mergedUsers.findIndex(u => u.id === newUser.id);
+        if (idx !== -1) {
+          // Update existing user: merge fields but keep password from existing
+          mergedUsers[idx] = { ...mergedUsers[idx], ...newUser, password: mergedUsers[idx].password };
+        } else if (!deletedUserIds.includes(newUser.id)) {
+          // New user from frontend (shouldn't normally happen but be safe)
+          mergedUsers.push({ ...newUser });
         }
-        return newUser;
       });
     }
-    
+
+    newData.users = mergedUsers;
+
+    // --- Predictions merge (always preserve all existing predictions) ---
+    if (!newData.predictions) {
+      newData.predictions = {};
+    }
+    if (existing.predictions) {
+      for (const userId of Object.keys(existing.predictions)) {
+        if (!newData.predictions[userId]) {
+          newData.predictions[userId] = existing.predictions[userId];
+        } else {
+          // Merge individual match predictions
+          for (const matchId of Object.keys(existing.predictions[userId])) {
+            if (!newData.predictions[userId][matchId]) {
+              newData.predictions[userId][matchId] = existing.predictions[userId][matchId];
+            }
+          }
+        }
+      }
+    }
+
+    // --- Matches merge (always preserve matches from existing) ---
+    if (!newData.matches) {
+      newData.matches = [];
+    }
+    if (existing.matches) {
+      existing.matches.forEach(existingMatch => {
+        if (deletedMatchIds.includes(existingMatch.id)) {
+          // Match is marked for deletion, skip it
+          return;
+        }
+        if (!newData.matches.find(m => m.id === existingMatch.id)) {
+          // Add matches from existing that are missing in newData
+          newData.matches.push(existingMatch);
+        }
+      });
+    }
+
+    // Clean up predictions for deleted matches
+    if (deletedMatchIds.length > 0 && newData.predictions) {
+      for (const userId of Object.keys(newData.predictions)) {
+        deletedMatchIds.forEach(matchId => {
+          delete newData.predictions[userId][matchId];
+        });
+      }
+    }
+
+    // --- Finals merge (always preserve all existing finals) ---
+    if (!newData.finals) {
+      newData.finals = {};
+    }
+    if (existing.finals) {
+      for (const userId of Object.keys(existing.finals)) {
+        if (!newData.finals[userId]) {
+          newData.finals[userId] = existing.finals[userId];
+        }
+      }
+    }
+
+    // --- Winners merge (always preserve all existing winners) ---
+    if (!newData.winners) {
+      newData.winners = {};
+    }
+    if (existing.winners) {
+      for (const userId of Object.keys(existing.winners)) {
+        if (!newData.winners[userId]) {
+          newData.winners[userId] = existing.winners[userId];
+        }
+      }
+    }
+
+    // --- ActualFinals merge ---
+    if (!newData.actualFinals) {
+      newData.actualFinals = {};
+    }
+    if (existing.actualFinals) {
+      Object.assign(newData.actualFinals, existing.actualFinals);
+    }
+
+    // --- ActualWinners merge ---
+    if (!newData.actualWinners) {
+      newData.actualWinners = {};
+    }
+    if (existing.actualWinners) {
+      Object.assign(newData.actualWinners, existing.actualWinners);
+    }
+
     writeData(newData);
-    res.json({ success: true });
+    res.json({ success: true, message: 'Data saved successfully' });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
