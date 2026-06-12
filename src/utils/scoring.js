@@ -6,9 +6,10 @@ export const DEFAULT_SCORING = {
   offByOne: 1,           // Прогноз отличается на 1 гол
   exactScore: 1,         // Полностью угадан счёт
   groupFinalist: 1,      // Угадан финалист группы
-  finalist: 15,          // Угадана команда-финалист
-  champion: 15,          // Угадан победитель турнира (+15 дополнительно к +15 за финалиста)
-  thirdPlace: 10,        // Угадано 3 место
+  champion: 15,          // Угадано 1-е место
+  secondPlace: 10,       // Угадано 2-е место
+  thirdPlace: 5,         // Угадано 3-е место
+  allThree: 10,          // Угаданы все три призёра (независимо от позиций)
 };
 
 // ===== Helpers =====
@@ -122,23 +123,33 @@ export function calculateWinnersScore(userWinners, actualWinners, scoringConfig)
 
   const details = [];
 
-  // Финалисты (1-е и 2-е место) — +15 за каждую угаданную команду в финале,
-  // независимо от того, на каком именно месте (1-м или 2-м) она оказалась
-  const userFinalists = [userWinners.first, userWinners.second].filter(Boolean);
-  const actualFinalists = [actualWinners.first, actualWinners.second].filter(Boolean);
+  // 1. All three correct (any order) — +10 bonus
+  // Если пользователь угадал всех трёх призёров (1-е, 2-е, 3-е место),
+  // неважно в каком порядке — начисляется бонус
+  const userSet = [userWinners.first, userWinners.second, userWinners.third].filter(Boolean);
+  const actualSet = [actualWinners.first, actualWinners.second, actualWinners.third].filter(Boolean);
 
-  for (const userTeam of userFinalists) {
-    if (actualFinalists.includes(userTeam)) {
-      details.push({ rule: 'finalist', points: cfg.finalist, team: userTeam });
+  if (userSet.length === 3 && actualSet.length === 3) {
+    const sortedUser = [...userSet].sort();
+    const sortedActual = [...actualSet].sort();
+    const allMatch = sortedUser.every((t, i) => t === sortedActual[i]);
+    if (allMatch) {
+      details.push({ rule: 'allThree', points: cfg.allThree, teams: [...userSet] });
     }
   }
 
-  // Победитель турнира (1-е место) — дополнительно +15 сверху (+15 за финалиста +15 за чемпиона = +30)
+  // 2. Position-specific points
+  // 1-е место — +15
   if (userWinners.first && userWinners.first === actualWinners.first) {
     details.push({ rule: 'champion', points: cfg.champion, team: userWinners.first });
   }
 
-  // 3-е место — +10
+  // 2-е место — +10
+  if (userWinners.second && userWinners.second === actualWinners.second) {
+    details.push({ rule: 'secondPlace', points: cfg.secondPlace, team: userWinners.second });
+  }
+
+  // 3-е место — +5
   if (userWinners.third && userWinners.third === actualWinners.third) {
     details.push({ rule: 'thirdPlace', points: cfg.thirdPlace, team: userWinners.third });
   }
@@ -291,7 +302,8 @@ export const SCORING_LABELS = {
   offByOne: 'Отличие на 1 гол',
   exactScore: 'Точный счёт',
   groupFinalist: 'Финалист группы',
-  finalist: 'Финалист турнира (любая позиция 1-2)',
-  champion: 'Победитель турнира (дополнительно к финалисту)',
+  champion: '1-е место (победитель)',
+  secondPlace: '2-е место',
   thirdPlace: '3-е место',
+  allThree: 'Все три призёра (независимо от порядка)',
 };

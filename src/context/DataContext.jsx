@@ -29,6 +29,15 @@ export function DataProvider({ children }) {
     return () => window.removeEventListener('toto-data-changed', handler);
   }, [refresh]);
 
+  // Poll server every 30 seconds to keep data in sync
+  // (e.g. matches becoming blocked, played, scores updated)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refresh();
+    }, 30_000);
+    return () => clearInterval(interval);
+  }, [refresh]);
+
   const updateData = useCallback(async (newData) => {
     // Deep clone to ensure React detects state change
     const cloned = JSON.parse(JSON.stringify(newData));

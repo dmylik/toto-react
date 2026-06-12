@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { calculateMatchScore, getScoringConfig } from '../utils/scoring';
@@ -7,6 +8,27 @@ export default function MyPredictionsPage() {
   const { user } = useAuth();
   const userPredictions = data.predictions[user?.id] || {};
   const cfg = getScoringConfig(data);
+
+  // Build a map of matchId → all user predictions for that match
+  const matchAllPredictions = useMemo(() => {
+    const map = {};
+    if (!data.predictions) return map;
+
+    for (const userId of Object.keys(data.predictions)) {
+      if (userId === user?.id) continue; // skip current user
+      const userPreds = data.predictions[userId] || {};
+      for (const matchId of Object.keys(userPreds)) {
+        if (!map[matchId]) map[matchId] = [];
+        const u = data.users.find(u => u.id === userId);
+        map[matchId].push({
+          userId,
+          displayName: u?.fullname || u?.username || userId,
+          prediction: userPreds[matchId],
+        });
+      }
+    }
+    return map;
+  }, [data, user?.id]);
 
   const predictionsList = Object.entries(userPredictions).map(([matchId, pred]) => {
     const match = data.matches.find(m => m.id === matchId);
@@ -24,6 +46,7 @@ export default function MyPredictionsPage() {
         <div className="predictions-list">
           {predictionsList.map(({ matchId, pred, match }) => {
             const score = calculateMatchScore(pred, match, cfg);
+            const otherPreds = matchAllPredictions[matchId] || [];
             return (
               <div key={matchId} className={`prediction-card ${match.played ? 'prediction-settled' : ''}`}>
                 <div className="prediction-header">
@@ -38,12 +61,29 @@ export default function MyPredictionsPage() {
                   <span>{match.team2}</span>
                 </div>
                 {match.played ? (
-                  <div className="prediction-result">
-                    <span>Результат: <strong>{match.score1}:{match.score2}</strong></span>
-                    <span className={`score-points ${score.total > 0 ? 'points-earned' : ''}`}>
-                      {score.total > 0 ? `+${score.total} баллов` : '0 баллов'}
-                    </span>
-                  </div>
+                  <>
+                    <div className="prediction-result">
+                      <span>Результат: <strong>{match.score1}:{match.score2}</strong></span>
+                      <span className={`score-points ${score.total > 0 ? 'points-earned' : ''}`}>
+                        {score.total > 0 ? `+${score.total} баллов` : '0 баллов'}
+                      </span>
+                    </div>
+                    {otherPreds.length > 0 && (
+                      <div className="other-predictions">
+                        <div className="other-predictions-title">Прогнозы участников:</div>
+                        <div className="other-predictions-list">
+                          {otherPreds.map(op => {
+                            const opScore = calculateMatchScore(op.prediction, match, cfg);
+                            return (
+                              <span key={op.userId} className="other-prediction-item" title={`${op.displayName}: ${op.prediction.score1}:${op.prediction.score2} — ${opScore.total > 0 ? `+${opScore.total}` : '0'} баллов`}>
+                                {op.displayName}: {op.prediction.score1}:{op.prediction.score2}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <div className="prediction-pending">⏳ Ожидает результата</div>
                 )}

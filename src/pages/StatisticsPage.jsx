@@ -93,12 +93,16 @@ export default function StatisticsPage() {
                 </ul>
               </div>
               <div className="scoring-rules-col">
-                <h4>За турнир</h4>
+                <h4>За финалистов групп</h4>
                 <ul>
                   <li>{SCORING_LABELS.groupFinalist}: <strong>+{cfg.groupFinalist}</strong></li>
-                  <li>{SCORING_LABELS.finalist}: <strong>+{cfg.finalist}</strong></li>
+                </ul>
+                <h4 style={{ marginTop: '0.75rem', color: '#94a3b8', fontSize: '0.85rem' }}>За победителей турнира</h4>
+                <ul>
                   <li>{SCORING_LABELS.champion}: <strong>+{cfg.champion}</strong></li>
+                  <li>{SCORING_LABELS.secondPlace}: <strong>+{cfg.secondPlace}</strong></li>
                   <li>{SCORING_LABELS.thirdPlace}: <strong>+{cfg.thirdPlace}</strong></li>
+                  <li>{SCORING_LABELS.allThree}: <strong>+{cfg.allThree}</strong> (бонус)</li>
                 </ul>
               </div>
             </div>

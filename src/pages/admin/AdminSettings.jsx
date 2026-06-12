@@ -27,9 +27,10 @@ export default function AdminSettings() {
 
   const specialScoringFields = [
     { key: 'groupFinalist', label: SCORING_LABELS.groupFinalist },
-    { key: 'finalist', label: SCORING_LABELS.finalist },
     { key: 'champion', label: SCORING_LABELS.champion },
+    { key: 'secondPlace', label: SCORING_LABELS.secondPlace },
     { key: 'thirdPlace', label: SCORING_LABELS.thirdPlace },
+    { key: 'allThree', label: SCORING_LABELS.allThree },
   ];
 
   return (
