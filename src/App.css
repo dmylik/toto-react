@@ -1339,7 +1339,8 @@ a:hover { text-decoration: underline; }
   max-width: 50px;
   background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
   border-radius: 6px 6px 0 0;
-  min-height: 4px;
+  min-height: 32px;
+  height: var(--bar-pct, 2%);
   transition: height 0.5s ease;
   position: relative;
   display: flex;
@@ -2144,18 +2145,33 @@ a:hover { text-decoration: underline; }
     gap: 0.5rem;
   }
 
+  .chart-bar-label {
+    order: -1;
+    width: 90px;
+    text-align: left;
+    margin-top: 0;
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
   .chart-bar-container {
+    order: 0;
     flex: 1;
     height: 28px;
     width: auto;
     align-items: center;
+    justify-content: flex-start;
   }
 
   .chart-bar {
-    height: 100% !important;
-    width: auto !important;
+    height: 100%;
+    width: var(--bar-pct, 2%);
     max-width: none;
-    min-width: 4px;
+    min-width: 36px;
     min-height: 0;
     border-radius: 0 6px 6px 0;
     align-items: center;
@@ -2168,21 +2184,10 @@ a:hover { text-decoration: underline; }
     white-space: nowrap;
   }
 
-  .chart-bar-label {
-    min-width: 70px;
-    max-width: 90px;
-    text-align: right;
-    margin-top: 0;
-    font-size: 0.75rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
   .chart-bar-score {
+    order: 1;
     min-width: 50px;
-    text-align: right;
+    text-align: left;
     margin-top: 0;
     font-size: 0.7rem;
     flex-shrink: 0;

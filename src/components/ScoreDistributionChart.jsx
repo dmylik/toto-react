@@ -53,7 +53,7 @@ export default function ScoreDistributionChart({ data }) {
               <div className="chart-bar-container">
                 <div
                   className="chart-bar"
-                  style={{ height: `${Math.max(heightPercent, 2)}%` }}
+                  style={{ '--bar-pct': `${Math.max(heightPercent, 2)}%` }}
                   title={`${item.fullname || item.username}: ${item.distributionScore.toFixed(2)} очка`}
                 >
                   <span className="chart-bar-value">
