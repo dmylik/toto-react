@@ -2126,4 +2126,85 @@ a:hover { text-decoration: underline; }
   .scoring-rules-grid {
     grid-template-columns: 1fr;
   }
+
+  /* ===== Mobile: horizontal chart bars ===== */
+  .distribution-chart {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    min-height: auto;
+    padding-top: 0.5rem;
+  }
+
+  .chart-bar-group {
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .chart-bar-container {
+    flex: 1;
+    height: 28px;
+    width: auto;
+    align-items: center;
+  }
+
+  .chart-bar {
+    height: 100% !important;
+    width: auto !important;
+    max-width: none;
+    min-width: 4px;
+    min-height: 0;
+    border-radius: 0 6px 6px 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 0 0.4rem;
+  }
+
+  .chart-bar-value {
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .chart-bar-label {
+    min-width: 70px;
+    max-width: 90px;
+    text-align: right;
+    margin-top: 0;
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .chart-bar-score {
+    min-width: 50px;
+    text-align: right;
+    margin-top: 0;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* Fix bar colors for horizontal layout */
+  .chart-bar-group:nth-child(6n+2) .chart-bar {
+    background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+  }
+  .chart-bar-group:nth-child(6n+3) .chart-bar {
+    background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+  }
+  .chart-bar-group:nth-child(6n+4) .chart-bar {
+    background: linear-gradient(90deg, #ec4899 0%, #db2777 100%);
+  }
+  .chart-bar-group:nth-child(6n+5) .chart-bar {
+    background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 100%);
+  }
+  .chart-bar-group:nth-child(6n+6) .chart-bar {
+    background: linear-gradient(90deg, #14b8a6 0%, #0d9488 100%);
+  }
+  .chart-bar-group:nth-child(6n+1) .chart-bar {
+    background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+  }
 }
