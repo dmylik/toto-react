@@ -20,6 +20,7 @@ export default function AdminPredictions() {
     [data.users]
   );
 
+
   const selectedUser = useMemo(() =>
     approvedUsers.find(u => u.id === selectedUserId),
     [selectedUserId, approvedUsers]
