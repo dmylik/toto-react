@@ -70,10 +70,8 @@ export function calculateMatchScore(prediction, actual, scoringConfig) {
     details.push({ rule: 'teamGoals', points: cfg.teamGoals });
   }
 
-  // 4. Total goals off by 1
-  const predTotal = predScore1 + predScore2;
-  const actTotal = actScore1 + actScore2;
-  if (Math.abs(predTotal - actTotal) === 1) {
+  // 4. Goal difference off by 1
+  if (Math.abs(predDiff - actDiff) === 1) {
     details.push({ rule: 'offByOne', points: cfg.offByOne });
   }
 
