@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { isPredicationBlocked, formatMatchDateTime } from '../utils/scoring';
 
 export default function MatchCard({ match, onDelete }) {
-  const { savePrediction, getUserPredictions } = useData();
+  const { data, savePrediction, getUserPredictions } = useData();
   const { user } = useAuth();
 
   const existingPrediction = getUserPredictions(user?.id)[match.id];
@@ -17,6 +17,26 @@ export default function MatchCard({ match, onDelete }) {
   const [saved, setSaved] = useState(false);
 
   const canPredict = !match.played && !blocked && !isAdmin;
+
+  // All users' predictions for this match (shown when blocked or played)
+  const allPredictions = useMemo(() => {
+    const result = [];
+    const users = data?.users || [];
+    const predictions = data?.predictions || {};
+    for (const u of users) {
+      if (u.role === 'admin' || u.status !== 'approved') continue;
+      const pred = predictions[u.id]?.[match.id];
+      if (pred) {
+        result.push({
+          username: u.fullname || u.username,
+          score1: pred.score1,
+          score2: pred.score2,
+          isMine: u.id === user?.id,
+        });
+      }
+    }
+    return result;
+  }, [data, match.id, user?.id]);
 
   const handleSave = () => {
     if (score1 === '' || score2 === '') return;
@@ -62,6 +82,20 @@ export default function MatchCard({ match, onDelete }) {
           </button>
         </div>
       ) : null}
+
+      {/* Show all predictions when match is blocked or played */}
+      {(blocked || match.played) && allPredictions.length > 0 && (
+        <div className="match-all-predictions">
+          <span className="all-predictions-label">Прогнозы участников:</span>
+          <div className="all-predictions-list">
+            {allPredictions.map((p, i) => (
+              <span key={i} className={`prediction-chip ${p.isMine ? 'mine' : ''}`}>
+                {p.username}: {p.score1}:{p.score2}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       {onDelete && (
         <button className="btn-delete-match" onClick={() => onDelete(match.id)}

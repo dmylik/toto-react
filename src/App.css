@@ -1060,6 +1060,41 @@ background: #334155;
   font-size: 1.2rem !important;
 }
 
+.match-all-predictions {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #334155;
+}
+
+.all-predictions-label {
+  font-size: 0.7rem;
+  color: #64748b;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.all-predictions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.prediction-chip {
+  background: #334155;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+
+.prediction-chip.mine {
+  background: #1e40af;
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
 /* ===== Filters Bar ===== */
 .matches-filters-bar {
   display: flex;
