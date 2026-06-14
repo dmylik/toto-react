@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { calculateMatchScore, getScoringConfig } from '../utils/scoring';
+import { calculateMatchScore, getScoringConfig, isPredicationBlocked } from '../utils/scoring';
 
 export default function MyPredictionsPage() {
   const { data } = useData();
@@ -85,7 +85,21 @@ export default function MyPredictionsPage() {
                     )}
                   </>
                 ) : (
-                  <div className="prediction-pending">⏳ Ожидает результата</div>
+                  <>
+                    <div className="prediction-pending">⏳ Ожидает результата</div>
+                    {isPredicationBlocked(match) && otherPreds.length > 0 && (
+                      <div className="other-predictions">
+                        <div className="other-predictions-title">Прогнозы участников:</div>
+                        <div className="other-predictions-list">
+                          {otherPreds.map(op => (
+                            <span key={op.userId} className="other-prediction-item" title={`${op.displayName}: ${op.prediction.score1}:${op.prediction.score2}`}>
+                              {op.displayName}: {op.prediction.score1}:{op.prediction.score2}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             );
