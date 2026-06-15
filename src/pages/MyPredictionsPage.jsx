@@ -1,13 +1,15 @@
-import { useMemo } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { calculateMatchScore, getScoringConfig, isPredicationBlocked } from '../utils/scoring';
+import { calculateMatchScore, getScoringConfig, isPredicationBlocked, formatMatchDateTime } from '../utils/scoring';
 
 export default function MyPredictionsPage() {
   const { data } = useData();
   const { user } = useAuth();
   const userPredictions = data.predictions[user?.id] || {};
   const cfg = getScoringConfig(data);
+  const [filter, setFilter] = useState('all');
+  const pendingRef = useRef(null);
 
   // Build a map of matchId → all user predictions for that match
   const matchAllPredictions = useMemo(() => {
@@ -37,20 +39,68 @@ export default function MyPredictionsPage() {
 
   predictionsList.sort((a, b) => (a.match.matchOrder || 0) - (b.match.matchOrder || 0));
 
+  const filteredList = useMemo(() => {
+    if (filter === 'all') return predictionsList;
+    return predictionsList.filter(({ match }) => {
+      if (filter === 'played') return match.played;
+      if (filter === 'pending') return !match.played && isPredicationBlocked(match);
+      if (filter === 'open') return !match.played && !isPredicationBlocked(match);
+      return true;
+    });
+  }, [predictionsList, filter]);
+
+  const scrollToPending = useCallback(() => {
+    if (pendingRef.current) {
+      pendingRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
+
   return (
     <div className="my-predictions-page">
       <h1 className="page-title">📋 Мои прогнозы</h1>
+
+      {predictionsList.length > 0 && (
+        <div className="matches-filters-bar">
+          <div className="matches-filter">
+            <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+              onClick={() => setFilter('all')}>📋 Все</button>
+            <button className={`filter-btn ${filter === 'played' ? 'active' : ''}`}
+              onClick={() => setFilter('played')}>✅ Завершённые</button>
+            <button className={`filter-btn ${filter === 'pending' ? 'active' : ''}`}
+              onClick={() => setFilter('pending')}>⏳ Ожидает результата</button>
+            <button className={`filter-btn ${filter === 'open' ? 'active' : ''}`}
+              onClick={() => setFilter('open')}>📝 Игра</button>
+          </div>
+
+          {filter === 'all' && predictionsList.some(({ match }) => !match.played) && (
+            <button className="filter-btn scroll-to-pending-btn"
+              onClick={scrollToPending} title="Прокрутить к ожидающим результата">
+              ↓ К ожидающим
+            </button>
+          )}
+        </div>
+      )}
+
       {predictionsList.length === 0 ? (
         <p className="empty-state">Вы ещё не сделали ни одного прогноза.</p>
+      ) : filteredList.length === 0 ? (
+        <p className="empty-state">Нет прогнозов по выбранному фильтру.</p>
       ) : (
         <div className="predictions-list">
-          {predictionsList.map(({ matchId, pred, match }) => {
+          {filteredList.map(({ matchId, pred, match }, idx) => {
             const score = calculateMatchScore(pred, match, cfg);
             const otherPreds = matchAllPredictions[matchId] || [];
+            const isPending = !match.played;
+            // First pending item gets the ref for scroll-to
+            const isFirstPending = isPending && filteredList.slice(0, idx).every(item => item.match.played);
+
             return (
-              <div key={matchId} className={`prediction-card ${match.played ? 'prediction-settled' : ''}`}>
+              <div key={matchId}
+                ref={isFirstPending ? pendingRef : null}
+                className={`prediction-card ${match.played ? 'prediction-settled' : ''}`}>
                 <div className="prediction-header">
                   <span className="match-group-badge">{match.group}</span>
+                  <span className="match-date-time">{formatMatchDateTime(match.dateTime)}</span>
                   <span className="match-order">Матч #{match.matchOrder}</span>
                 </div>
                 <div className="prediction-teams">

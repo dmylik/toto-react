@@ -2261,6 +2261,98 @@ background: #334155;
     font-size: 0.7rem;
     flex-shrink: 0;
   }
+  
+  /* ===== Statistics Layout (equal width blocks) ===== */
+  .statistics-layout {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  
+  .statistics-layout .distribution-chart-wrapper {
+    max-width: 100%;
+  }
+  
+  .statistics-layout .leaderboard-table-wrapper {
+    max-width: 100%;
+  }
+  
+  .statistics-layout .scoring-rules-box {
+    max-width: 100%;
+  }
+  
+  /* ===== Gap Cell in Leaderboard ===== */
+  .gap-cell {
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  /* ===== Scoring Rules Header ===== */
+  .scoring-rules-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .scoring-rules-header h3 {
+    margin-bottom: 0;
+  }
+  
+  .scoring-toggle-btn {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.6rem !important;
+    white-space: nowrap;
+  }
+  
+  /* ===== Scoring Details (examples) ===== */
+  .scoring-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #334155;
+  }
+  
+  .scoring-details h4 {
+    color: #fbbf24;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .scoring-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .scoring-example {
+    background: #0f172a;
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .scoring-example strong {
+    display: block;
+    color: #60a5fa;
+    margin-bottom: 0.15rem;
+  }
+  
+  .scoring-example span {
+    color: #94a3b8;
+  }
+  
+  /* ===== Scroll to Pending Button ===== */
+  .scroll-to-pending-btn {
+    background: #78350f !important;
+    border-color: #f59e0b !important;
+    color: #fbbf24 !important;
+    font-weight: 600 !important;
+  }
+  
+  .scroll-to-pending-btn:hover {
+    background: #92400e !important;
+  }
 
   /* Fix bar colors for horizontal layout */
   .chart-bar-group:nth-child(6n+2) .chart-bar {

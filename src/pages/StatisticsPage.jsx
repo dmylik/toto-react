@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react';
 import { useData } from '../context/DataContext';
-import { useAuth } from '../context/AuthContext';
 import {
   getAllUsersScores,
   getDetailedScoreHistory,
@@ -11,10 +10,10 @@ import ScoreDistributionChart from '../components/ScoreDistributionChart';
 
 export default function StatisticsPage() {
   const { data } = useData();
-  const { user } = useAuth();
   const cfg = getScoringConfig(data);
   const scores = getAllUsersScores(data);
   const [detailUserId, setDetailUserId] = useState(null);
+  const [showScoringDetails, setShowScoringDetails] = useState(false);
 
   const detailHistory = useMemo(() => {
     if (!detailUserId) return null;
@@ -34,12 +33,14 @@ export default function StatisticsPage() {
     ? data.users.find(u => u.id === detailUserId)
     : null;
 
+  const leaderScore = scores.length > 0 ? scores[0].score : 0;
+
   return (
     <div className="statistics-page">
       <h1 className="page-title">📊 Таблица лидеров</h1>
 
       {!detailUserId ? (
-        <>
+        <div className="statistics-layout">
           <ScoreDistributionChart data={data} />
 
           <div className="leaderboard-table-wrapper">
@@ -49,38 +50,51 @@ export default function StatisticsPage() {
                 <th>#</th>
                 <th>Участник</th>
                 <th>Баллы</th>
+                <th>Отставание</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {scores.map((s, i) => (
-                <tr key={s.userId} className={i === 0 ? 'leader' : ''}>
-                  <td className="rank-cell">
-                    {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}`}
-                  </td>
-                  <td>
-                    <span className="stat-player-name">{s.fullname || s.username}</span>
-                    {s.fullname && s.fullname !== s.username && (
-                      <span className="stat-player-login"> ({s.username})</span>
-                    )}
-                  </td>
-                  <td className="score-cell">{s.score}</td>
-                  <td>
-                    <button
-                      className="btn-detail"
-                      onClick={() => setDetailUserId(s.userId)}
-                    >
-                      Подробно
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {scores.map((s, i) => {
+                const gap = leaderScore - s.score;
+                return (
+                  <tr key={s.userId} className={i === 0 ? 'leader' : ''}>
+                    <td className="rank-cell">
+                      {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}`}
+                    </td>
+                    <td>
+                      <span className="stat-player-name">{s.fullname || s.username}</span>
+                      {s.fullname && s.fullname !== s.username && (
+                        <span className="stat-player-login"> ({s.username})</span>
+                      )}
+                    </td>
+                    <td className="score-cell">{s.score}</td>
+                    <td className="gap-cell">{i === 0 ? '—' : `-${gap}`}</td>
+                    <td>
+                      <button
+                        className="btn-detail"
+                        onClick={() => setDetailUserId(s.userId)}
+                      >
+                        Подробно
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           </div>
 
           <div className="scoring-rules-box">
-            <h3>📐 Правила начисления очков</h3>
+            <div className="scoring-rules-header">
+              <h3>📐 Правила начисления очков</h3>
+              <button
+                className="btn-detail scoring-toggle-btn"
+                onClick={() => setShowScoringDetails(v => !v)}
+              >
+                {showScoringDetails ? '▲ Свернуть' : '▼ Подробнее'}
+              </button>
+            </div>
             <div className="scoring-rules-grid">
               <div className="scoring-rules-col">
                 <h4>За матчи</h4>
@@ -106,8 +120,36 @@ export default function StatisticsPage() {
                 </ul>
               </div>
             </div>
+
+            {showScoringDetails && (
+              <div className="scoring-details">
+                <h4>📌 Примеры расчёта очков за матч</h4>
+                <div className="scoring-examples">
+                  <div className="scoring-example">
+                    <strong>Исход матча (+{cfg.matchOutcome}):</strong>
+                    <span>Счёт 2:1 → прогноз 3:0 — угадан исход (победа первой команды)</span>
+                  </div>
+                  <div className="scoring-example">
+                    <strong>Разница голов (+{cfg.goalDifference}):</strong>
+                    <span>Счёт 3:1 → прогноз 4:2 — разница 2 гола совпала</span>
+                  </div>
+                  <div className="scoring-example">
+                    <strong>Голы одной команды (+{cfg.teamGoals} за каждую):</strong>
+                    <span>Счёт 2:1 → прогноз 2:3 — угадано 2 гола первой команды = +{cfg.teamGoals}</span>
+                  </div>
+                  <div className="scoring-example">
+                    <strong>Отличие на 1 гол (+{cfg.offByOne}):</strong>
+                    <span>Счёт 2:1 → прогноз 2:2 — одна команда угадана, вторая отличается на 1 гол</span>
+                  </div>
+                  <div className="scoring-example">
+                    <strong>Точный счёт (+{cfg.exactScore}):</strong>
+                    <span>Счёт 2:1 → прогноз 2:1 — полное совпадение = +{cfg.matchOutcome + cfg.goalDifference + cfg.teamGoals * 2 + cfg.offByOne + cfg.exactScore} очков (сумма всех правил)</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        </>
+        </div>
       ) : (
         <div className="stat-detail">
           <button className="btn-back" onClick={() => setDetailUserId(null)}>
@@ -124,7 +166,7 @@ export default function StatisticsPage() {
             <div className="stat-section">
               <h3>⚽ Прогнозы на матчи</h3>
               <div className="stat-matches-list">
-                {detailHistory.matchScores.map((ms, idx) => (
+                {detailHistory.matchScores.map((ms) => (
                   <div key={ms.matchId} className="stat-match-card">
                     <div className="stat-match-header">
                       <span className="stat-match-badge">{ms.group || ms.stage}</span>
