@@ -655,6 +655,11 @@ background: #334155;
   font-size: 0.85rem;
 }
 
+.prediction-live {
+  color: #ef4444;
+  font-weight: 600;
+}
+
 .prediction-settled {
   border-left: 3px solid #22c55e;
 }
@@ -780,7 +785,7 @@ background: #334155;
 /* ===== Statistics ===== */
 .leaderboard-table-wrapper {
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -1510,7 +1515,7 @@ background: #334155;
 
 /* ===== Scoring Rules Box ===== */
 .scoring-rules-box {
-  max-width: 600px;
+  max-width: 800px;
   margin: 2rem auto 0;
   background: #1e293b;
   border-radius: 8px;

@@ -40,11 +40,18 @@ export default function MyPredictionsPage() {
   predictionsList.sort((a, b) => (a.match.matchOrder || 0) - (b.match.matchOrder || 0));
 
   const filteredList = useMemo(() => {
+    const now = Date.now();
     if (filter === 'all') return predictionsList;
     return predictionsList.filter(({ match }) => {
       if (filter === 'played') return match.played;
-      if (filter === 'pending') return !match.played && isPredicationBlocked(match);
-      if (filter === 'open') return !match.played && !isPredicationBlocked(match);
+      if (filter === 'pending') {
+        // Матч ещё не начался (dateTime > now)
+        return !match.played && new Date(match.dateTime).getTime() > now;
+      }
+      if (filter === 'live') {
+        // Матч уже начался по времени, но результат не выставлен
+        return !match.played && new Date(match.dateTime).getTime() <= now;
+      }
       return true;
     });
   }, [predictionsList, filter]);
@@ -53,6 +60,13 @@ export default function MyPredictionsPage() {
     if (pendingRef.current) {
       pendingRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }, []);
+
+  // Determine if a non-played match is "live" (match time has passed) or "pending" (upcoming)
+  const getMatchStatus = useCallback((match) => {
+    if (match.played) return 'played';
+    const matchTime = new Date(match.dateTime).getTime();
+    return matchTime <= Date.now() ? 'live' : 'pending';
   }, []);
 
   return (
@@ -68,8 +82,8 @@ export default function MyPredictionsPage() {
               onClick={() => setFilter('played')}>✅ Завершённые</button>
             <button className={`filter-btn ${filter === 'pending' ? 'active' : ''}`}
               onClick={() => setFilter('pending')}>⏳ Ожидает результата</button>
-            <button className={`filter-btn ${filter === 'open' ? 'active' : ''}`}
-              onClick={() => setFilter('open')}>📝 Игра</button>
+            <button className={`filter-btn ${filter === 'live' ? 'active' : ''}`}
+              onClick={() => setFilter('live')}>🔴 Игра</button>
           </div>
 
           {filter === 'all' && predictionsList.some(({ match }) => !match.played) && (
@@ -90,9 +104,10 @@ export default function MyPredictionsPage() {
           {filteredList.map(({ matchId, pred, match }, idx) => {
             const score = calculateMatchScore(pred, match, cfg);
             const otherPreds = matchAllPredictions[matchId] || [];
-            const isPending = !match.played;
+            const status = getMatchStatus(match);
+            const isPending = status === 'pending';
             // First pending item gets the ref for scroll-to
-            const isFirstPending = isPending && filteredList.slice(0, idx).every(item => item.match.played);
+            const isFirstPending = isPending && filteredList.slice(0, idx).every(item => item.match.played || getMatchStatus(item.match) === 'live');
 
             return (
               <div key={matchId}
@@ -130,6 +145,22 @@ export default function MyPredictionsPage() {
                               </span>
                             );
                           })}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : status === 'live' ? (
+                  <>
+                    <div className="prediction-pending prediction-live">🔴 Идёт игра</div>
+                    {isPredicationBlocked(match) && otherPreds.length > 0 && (
+                      <div className="other-predictions">
+                        <div className="other-predictions-title">Прогнозы участников:</div>
+                        <div className="other-predictions-list">
+                          {otherPreds.map(op => (
+                            <span key={op.userId} className="other-prediction-item" title={`${op.displayName}: ${op.prediction.score1}:${op.prediction.score2}`}>
+                              {op.displayName}: {op.prediction.score1}:{op.prediction.score2}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     )}
