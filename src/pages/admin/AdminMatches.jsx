@@ -14,6 +14,7 @@ export default function AdminMatches() {
   const [winnersSaved, setWinnersSaved] = useState(false);
   const [autoFillMsg, setAutoFillMsg] = useState(null);
   const [autoFillGlobalMsg, setAutoFillGlobalMsg] = useState(null);
+  const [groupFilter, setGroupFilter] = useState('all');
 
   // New match form
   const [newMatch, setNewMatch] = useState({
@@ -125,12 +126,32 @@ export default function AdminMatches() {
 
       {/* Group matches */}
       <h2 className="page-subtitle">Групповой этап</h2>
-      {groupKeys.map(key => (
+      <div className="matches-filters-bar" style={{ marginBottom: '0.75rem' }}>
+        <select
+          className="group-filter-select"
+          value={groupFilter}
+          onChange={e => setGroupFilter(e.target.value)}
+        >
+          <option value="all">📋 Все группы</option>
+          {groupKeys.map(key => (
+            <option key={key} value={key}>{data.groups[key].name}</option>
+          ))}
+        </select>
+        <span style={{ color: '#64748b', fontSize: '0.8rem' }}>
+          {groupFilter === 'all'
+            ? `Показаны все группы (${groupKeys.length})`
+            : `Показана группа ${data.groups[groupFilter]?.name || groupFilter}`
+          }
+        </span>
+      </div>
+      {groupKeys
+        .filter(key => groupFilter === 'all' || key === groupFilter)
+        .map(key => (
         <div key={key} className="admin-group-section">
           <h3 className="group-title">{data.groups[key].name}</h3>
           <div className="admin-matches-list">
             {groupMatches.filter(m => m.group === key).map(match => (
-              <div key={match.id} className="admin-match-row">
+              <div key={match.id} className={`admin-match-row ${match.played ? 'admin-match-played' : ''}`}>
                 <div className="match-teams-label">
                   <span>{match.team1} — {match.team2}</span>
                   {match.dateTime && <span className="match-date-small">{match.dateTime.replace('T', ' ')}</span>}

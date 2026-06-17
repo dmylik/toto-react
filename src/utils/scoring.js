@@ -228,9 +228,13 @@ export function getDetailedScoreHistory(userId, data) {
         actual: { score1: match.score1, score2: match.score2 },
         total: result.total,
         details: result.details,
+        matchOrder: match.matchOrder || 0,
       });
     }
   }
+
+  // Sort matches: newest first (older at the end)
+  history.matchScores.sort((a, b) => (b.matchOrder || 0) - (a.matchOrder || 0));
 
   // Finals — начисляются только после завершения всех матчей группового этапа
   if (allGroupPlayed) {

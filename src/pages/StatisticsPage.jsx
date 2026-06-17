@@ -50,7 +50,7 @@ export default function StatisticsPage() {
                 <th>#</th>
                 <th>Участник</th>
                 <th>Баллы</th>
-                <th>Отставание</th>
+                <th><span className="gap-label-desktop">Отставание</span><span className="gap-label-mobile">-</span></th>
                 <th></th>
               </tr>
             </thead>
@@ -69,7 +69,10 @@ export default function StatisticsPage() {
                       )}
                     </td>
                     <td className="score-cell">{s.score}</td>
-                    <td className="gap-cell">{i === 0 ? '—' : `-${gap}`}</td>
+                    <td className="gap-cell">
+                      <span className="gap-value-desktop">{i === 0 ? '—' : `-${gap}`}</span>
+                      <span className="gap-value-mobile">-</span>
+                    </td>
                     <td>
                       <button
                         className="btn-detail"

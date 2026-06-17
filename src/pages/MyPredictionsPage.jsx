@@ -37,7 +37,7 @@ export default function MyPredictionsPage() {
     return { matchId, pred, match };
   }).filter(item => item.match);
 
-  predictionsList.sort((a, b) => (a.match.matchOrder || 0) - (b.match.matchOrder || 0));
+  predictionsList.sort((a, b) => (b.match.matchOrder || 0) - (a.match.matchOrder || 0));
 
   const filteredList = useMemo(() => {
     const now = Date.now();
