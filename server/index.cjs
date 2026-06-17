@@ -250,9 +250,8 @@ app.post('/api/admin/deploy', (req, res) => {
   const projectDir = path.resolve(__dirname, '..');
   const commands = [
     'git pull origin main',
-    'npm install',
     'npm run build',
-    'pm2 reload toto-predictor',
+    'pm2 reload 1',
   ].join(' && ');
 
   console.log('[DEPLOY] Starting deployment...');
