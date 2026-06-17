@@ -69,10 +69,7 @@ export default function StatisticsPage() {
                       )}
                     </td>
                     <td className="score-cell">{s.score}</td>
-                    <td className="gap-cell">
-                      <span className="gap-value-desktop">{i === 0 ? '—' : `-${gap}`}</span>
-                      <span className="gap-value-mobile">-</span>
-                    </td>
+                    <td className="gap-cell">{i === 0 ? '—' : `-${gap}`}</td>
                     <td>
                       <button
                         className="btn-detail"

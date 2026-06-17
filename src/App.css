@@ -1694,23 +1694,17 @@ background: #334155;
   white-space: nowrap;
 }
 
-/* Gap column - desktop vs mobile */
-.gap-label-mobile,
-.gap-value-mobile {
+/* Gap column - mobile: заголовок "Отставание" → "-" */
+.gap-label-mobile {
   display: none;
 }
 
 @media (max-width: 768px) {
-  .gap-label-desktop,
-  .gap-value-desktop {
+  .gap-label-desktop {
     display: none;
   }
-  .gap-label-mobile,
-  .gap-value-mobile {
+  .gap-label-mobile {
     display: inline;
-  }
-  .gap-cell {
-    text-align: center;
   }
 }
 
