@@ -62,7 +62,7 @@ export default function MatchCard({ match, onDelete }) {
             <span className="your-prediction your-prediction-large">Ваш: {existingPrediction.score1}:{existingPrediction.score2}</span>
           )}
           {allPredictions.length > 0 && (
-            <div className="match-all-predictions-inline">
+            <div className="match-all-predictions">
               <span className="all-predictions-label">Прогнозы участников:</span>
               <div className="all-predictions-list">
                 {allPredictions.map((p, i) => (
