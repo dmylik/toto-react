@@ -854,6 +854,30 @@ background: #334155;
   font-size: 0.875rem;
 }
 
+.admin-card.deploy-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid #f59e0b;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: inherit;
+  color: #e2e8f0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.admin-card.deploy-card:hover:not(:disabled) {
+  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  border-color: #fbbf24;
+  transform: translateY(-2px);
+}
+.admin-card.deploy-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 /* Admin Matches */
 .admin-group-section {
   margin-bottom: 1.5rem;

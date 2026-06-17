@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const { exec } = require('child_process');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -242,6 +243,30 @@ app.post('/api/login', (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
+});
+
+// POST /api/admin/deploy - git pull, build, and restart PM2
+app.post('/api/admin/deploy', (req, res) => {
+  const projectDir = path.resolve(__dirname, '..');
+  const commands = [
+    'git pull origin main',
+    'npm install',
+    'npm run build',
+    'pm2 reload toto-predictor',
+  ].join(' && ');
+
+  console.log('[DEPLOY] Starting deployment...');
+  res.json({ success: true, message: '🚀 Деплой запущен...' });
+
+  exec(commands, { cwd: projectDir, timeout: 120_000 }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`[DEPLOY] Error: ${error.message}`);
+      console.error(`[DEPLOY] stderr: ${stderr}`);
+      return;
+    }
+    console.log(`[DEPLOY] Success:\n${stdout}`);
+    if (stderr) console.log(`[DEPLOY] stderr:\n${stderr}`);
+  });
 });
 
 // Fallback for SPA routing
