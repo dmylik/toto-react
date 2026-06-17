@@ -49,7 +49,8 @@ export default function StatisticsPage() {
               <tr>
                 <th>#</th>
                 <th>Участник</th>
-                <th>Баллы</th>
+                <th className="score-cell">Баллы</th>
+                <th className="exact-col-header">🎯</th>
                 <th><span className="gap-label-desktop">Отставание</span><span className="gap-label-mobile">-</span></th>
                 <th></th>
               </tr>
@@ -69,13 +70,15 @@ export default function StatisticsPage() {
                       )}
                     </td>
                     <td className="score-cell">{s.score}</td>
+                    <td className="exact-cell">{s.exactCount || 0}</td>
                     <td className="gap-cell">{i === 0 ? '—' : `-${gap}`}</td>
                     <td>
                       <button
                         className="btn-detail"
                         onClick={() => setDetailUserId(s.userId)}
                       >
-                        Подробно
+                        <span className="btn-detail-desktop">Подробно</span>
+                        <span className="btn-detail-mobile">...</span>
                       </button>
                     </td>
                   </tr>

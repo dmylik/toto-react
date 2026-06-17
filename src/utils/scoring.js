@@ -267,17 +267,33 @@ export function getDetailedScoreHistory(userId, data) {
 // ===== Leaderboard =====
 
 export function getAllUsersScores(data) {
+  const cfg = getScoringConfig(data);
   const scores = [];
 
   for (const user of data.users) {
     if (user.role === 'admin') continue;
     if (user.status !== 'approved') continue;
     const totalScore = calculateTotalScore(user.id, data);
+
+    // Count exact score predictions (where all rules fire = 9 pts with defaults)
+    let exactCount = 0;
+    const userPredictions = data.predictions[user.id] || {};
+    for (const matchId of Object.keys(userPredictions)) {
+      const match = data.matches.find(m => m.id === matchId);
+      if (match && match.played) {
+        const result = calculateMatchScore(userPredictions[matchId], match, cfg);
+        if (result.details.some(d => d.rule === 'exactScore')) {
+          exactCount++;
+        }
+      }
+    }
+
     scores.push({
       userId: user.id,
       username: user.username,
       fullname: user.fullname || user.username,
       score: totalScore,
+      exactCount,
     });
   }
 

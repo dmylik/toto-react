@@ -815,6 +815,34 @@ background: #334155;
 .leader { background: rgba(251, 191, 36, 0.1); }
 .rank-cell { font-size: 1.2rem; }
 .score-cell { font-weight: 700; color: #fbbf24; }
+.exact-col-header {
+  text-align: center;
+  font-size: 0.85rem;
+}
+.exact-cell {
+  text-align: center;
+  font-weight: 600;
+  color: #22c55e;
+  font-size: 0.9rem;
+}
+.btn-detail-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .btn-detail-desktop {
+    display: none;
+  }
+  .btn-detail-mobile {
+    display: inline;
+  }
+  .exact-col-header {
+    font-size: 0.75rem;
+  }
+  .exact-cell {
+    font-size: 0.8rem;
+  }
+}
 
 /* ===== Admin ===== */
 .admin-grid {
