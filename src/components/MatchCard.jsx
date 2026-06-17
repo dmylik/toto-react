@@ -59,7 +59,19 @@ export default function MatchCard({ match, onDelete }) {
         <div className="match-result">
           <strong className="match-score-large">{match.score1} : {match.score2}</strong>
           {existingPrediction && (
-            <span className="your-prediction">Ваш: {existingPrediction.score1}:{existingPrediction.score2}</span>
+            <span className="your-prediction your-prediction-large">Ваш: {existingPrediction.score1}:{existingPrediction.score2}</span>
+          )}
+          {allPredictions.length > 0 && (
+            <div className="match-all-predictions-inline">
+              <span className="all-predictions-label">Прогнозы участников:</span>
+              <div className="all-predictions-list">
+                {allPredictions.map((p, i) => (
+                  <span key={i} className={`prediction-chip ${p.isMine ? 'mine' : ''}`}>
+                    {p.username}: {p.score1}:{p.score2}
+                  </span>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       ) : blocked && !isAdmin ? (
@@ -83,8 +95,8 @@ export default function MatchCard({ match, onDelete }) {
         </div>
       ) : null}
 
-      {/* Show all predictions when match is blocked or played */}
-      {(blocked || match.played) && allPredictions.length > 0 && (
+      {/* Show all predictions when match is blocked (not played) */}
+      {blocked && !match.played && allPredictions.length > 0 && (
         <div className="match-all-predictions">
           <span className="all-predictions-label">Прогнозы участников:</span>
           <div className="all-predictions-list">

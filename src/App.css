@@ -528,11 +528,19 @@ background: #334155;
   gap: 0.5rem;
   white-space: nowrap;
   margin-left: auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .your-prediction {
   color: #64748b;
   font-size: 0.7rem;
+}
+
+.your-prediction-large {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #93c5fd;
 }
 
 .match-prediction {
@@ -1127,6 +1135,18 @@ background: #334155;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   border-top: 1px solid #334155;
+}
+
+.match-all-predictions-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.match-all-predictions-inline .all-predictions-label {
+  display: inline;
+  margin-bottom: 0;
 }
 
 .all-predictions-label {
