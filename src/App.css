@@ -1747,11 +1747,22 @@ background: #334155;
   display: none;
 }
 
+/* Score column - mobile: "Баллы" → "⭐" */
+.score-label-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .gap-label-desktop {
     display: none;
   }
   .gap-label-mobile {
+    display: inline;
+  }
+  .score-label-desktop {
+    display: none;
+  }
+  .score-label-mobile {
     display: inline;
   }
 }

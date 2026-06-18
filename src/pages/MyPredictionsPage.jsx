@@ -37,23 +37,33 @@ export default function MyPredictionsPage() {
     return { matchId, pred, match };
   }).filter(item => item.match);
 
-  predictionsList.sort((a, b) => (b.match.matchOrder || 0) - (a.match.matchOrder || 0));
-
   const filteredList = useMemo(() => {
     const now = Date.now();
-    if (filter === 'all') return predictionsList;
-    return predictionsList.filter(({ match }) => {
-      if (filter === 'played') return match.played;
-      if (filter === 'pending') {
-        // Матч ещё не начался (dateTime > now)
-        return !match.played && new Date(match.dateTime).getTime() > now;
-      }
-      if (filter === 'live') {
-        // Матч уже начался по времени, но результат не выставлен
-        return !match.played && new Date(match.dateTime).getTime() <= now;
-      }
-      return true;
-    });
+    let list;
+    if (filter === 'all') {
+      list = predictionsList;
+    } else {
+      list = predictionsList.filter(({ match }) => {
+        if (filter === 'played') return match.played;
+        if (filter === 'pending') {
+          return !match.played && new Date(match.dateTime).getTime() > now;
+        }
+        if (filter === 'live') {
+          return !match.played && new Date(match.dateTime).getTime() <= now;
+        }
+        return true;
+      });
+    }
+
+    // Sort: для "pending" и "live" — по возрастанию (ближайшие первыми),
+    // для "all" и "played" — по убыванию (новые сверху, старые в конце)
+    if (filter === 'pending' || filter === 'live') {
+      list.sort((a, b) => (a.match.matchOrder || 0) - (b.match.matchOrder || 0));
+    } else {
+      list.sort((a, b) => (b.match.matchOrder || 0) - (a.match.matchOrder || 0));
+    }
+
+    return list;
   }, [predictionsList, filter]);
 
   const scrollToPending = useCallback(() => {

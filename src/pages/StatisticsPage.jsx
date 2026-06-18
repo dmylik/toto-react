@@ -49,7 +49,7 @@ export default function StatisticsPage() {
               <tr>
                 <th>#</th>
                 <th>Участник</th>
-                <th className="score-cell">Баллы</th>
+                <th className="score-cell"><span className="score-label-desktop">Баллы</span><span className="score-label-mobile">⭐</span></th>
                 <th className="exact-col-header">🎯</th>
                 <th><span className="gap-label-desktop">Отставание</span><span className="gap-label-mobile">-</span></th>
                 <th></th>
