@@ -39,8 +39,9 @@ function computeHeadToHead(teamName, opponentNames, groupKey, data) {
  * 4. Общая разница мячей
  * 5. Общее количество забитых мячей
  */
-function resolveTiedGroup(tiedTeams, groupKey, data) {
-  if (tiedTeams.length <= 1) return tiedTeams;
+function resolveTiedGroup(tiedTeams, groupKey, data, depth = 0) {
+  // Безопасность: предотвращаем бесконечную рекурсию
+  if (tiedTeams.length <= 1 || depth > 10) return tiedTeams;
 
   const teamNames = tiedTeams.map(t => t.name);
 
@@ -78,9 +79,11 @@ function resolveTiedGroup(tiedTeams, groupKey, data) {
            tiedTeams[j].goalsFor === tiedTeams[i].goalsFor) {
       j++;
     }
-    if (j - i >= 2) {
-      const subTied = resolveTiedGroup(tiedTeams.slice(i, j), groupKey, data);
-      tiedTeams.splice(i, j - i, ...subTied);
+    // Рекурсия только если подгруппа меньше текущей (иначе бесконечный цикл)
+    const subSize = j - i;
+    if (subSize >= 2 && subSize < tiedTeams.length) {
+      const subTied = resolveTiedGroup(tiedTeams.slice(i, j), groupKey, data, depth + 1);
+      tiedTeams.splice(i, subSize, ...subTied);
     }
     i = j;
   }
