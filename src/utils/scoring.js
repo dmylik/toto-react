@@ -297,7 +297,10 @@ export function getAllUsersScores(data) {
     });
   }
 
-  scores.sort((a, b) => b.score - a.score);
+  scores.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return (b.exactCount || 0) - (a.exactCount || 0);
+  });
   return scores;
 }
 
