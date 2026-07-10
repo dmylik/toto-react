@@ -53,7 +53,8 @@ export default function AdminPredictions() {
     const defaults = {
       matchOutcome: 3, goalDifference: 3, teamGoals: 1,
       offByOne: 1, exactScore: 1,
-      groupFinalist: 1, finalist: 15, champion: 25, thirdPlace: 10,
+      groupFinalist: 1, champion: 15, secondPlace: 10, thirdPlace: 5,
+      allThree: 10,
     };
     return { ...defaults, ...(data?.app?.scoring || {}) };
   }, [data]);

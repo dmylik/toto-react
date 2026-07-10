@@ -4,7 +4,19 @@ import { useData } from '../../context/DataContext';
 export default function AdminMatches() {
   const { data, updateMatchScore, addMatch, setActualFinals, setActualWinners, deleteMatch, savePrediction } = useData();
   const [scores, setScores] = useState({});
-  const [finals, setFinals] = useState({});
+  const [finals, setFinals] = useState(() => {
+    // Инициализируем из существующих actualFinals, конвертируя массивы в {team1, team2}
+    const initial = {};
+    if (data?.actualFinals) {
+      Object.keys(data.groups).forEach(key => {
+        const arr = data.actualFinals[key] || [];
+        if (arr.length > 0) {
+          initial[key] = { team1: arr[0] || '', team2: arr[1] || '' };
+        }
+      });
+    }
+    return initial;
+  });
   const [winners, setWinners] = useState({
     first: data.actualWinners?.first || '',
     second: data.actualWinners?.second || '',
@@ -286,8 +298,10 @@ export default function AdminMatches() {
             <select value={newMatch.stage} onChange={e => setNewMatch({...newMatch, stage: e.target.value})}>
               <option value="roundOf32">1/32 финала</option>
               <option value="roundOf16">1/16 финала</option>
+              <option value="roundOf8">1/8 финала</option>
               <option value="quarterFinal">1/4 финала</option>
               <option value="semiFinal">1/2 финала</option>
+              <option value="thirdPlace">Матч за 3-е место</option>
               <option value="final">Финал</option>
             </select>
             <button className="btn-primary btn-add-match" onClick={handleAddMatch}>

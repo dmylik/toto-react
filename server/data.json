@@ -2,8 +2,8 @@
   "app": {
     "settings": {
       "lockPredictions": false,
-      "lockFinalsSelection": false,
-      "lockWinnerSelection": false,
+      "lockFinalsSelection": true,
+      "lockWinnerSelection": true,
       "lockPlayoffSection": false
     }
   },
@@ -196,9 +196,9 @@
       "group": "A",
       "team1": "Мексика",
       "team2": "Южная Африка",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 1,
       "dateTime": "2026-06-11T22:00:00"
@@ -208,9 +208,9 @@
       "group": "A",
       "team1": "Южная Корея",
       "team2": "Чехия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 2,
       "dateTime": "2026-06-12T05:00:00"
@@ -220,9 +220,9 @@
       "group": "B",
       "team1": "Канада",
       "team2": "Босния и Герцеговина",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 3,
       "dateTime": "2026-06-12T22:00:00"
@@ -232,9 +232,9 @@
       "group": "D",
       "team1": "США",
       "team2": "Парагвай",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 4,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 4,
       "dateTime": "2026-06-13T04:00:00"
@@ -244,9 +244,9 @@
       "group": "B",
       "team1": "Катар",
       "team2": "Швейцария",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 5,
       "dateTime": "2026-06-13T22:00:00"
@@ -256,9 +256,9 @@
       "group": "C",
       "team1": "Бразилия",
       "team2": "Марокко",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 6,
       "dateTime": "2026-06-14T01:00:00"
@@ -268,9 +268,9 @@
       "group": "C",
       "team1": "Гаити",
       "team2": "Шотландия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 7,
       "dateTime": "2026-06-14T04:00:00"
@@ -280,9 +280,9 @@
       "group": "D",
       "team1": "Австралия",
       "team2": "Турция",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 8,
       "dateTime": "2026-06-14T07:00:00"
@@ -292,9 +292,9 @@
       "group": "E",
       "team1": "Германия",
       "team2": "Кюрасао",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 7,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 9,
       "dateTime": "2026-06-14T20:00:00"
@@ -304,9 +304,9 @@
       "group": "F",
       "team1": "Нидерланды",
       "team2": "Япония",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 10,
       "dateTime": "2026-06-14T23:00:00"
@@ -316,9 +316,9 @@
       "group": "E",
       "team1": "Кот-д'Ивуар",
       "team2": "Эквадор",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 11,
       "dateTime": "2026-06-15T02:00:00"
@@ -328,9 +328,9 @@
       "group": "F",
       "team1": "Швеция",
       "team2": "Тунис",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 5,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 12,
       "dateTime": "2026-06-15T05:00:00"
@@ -340,9 +340,9 @@
       "group": "H",
       "team1": "Испания",
       "team2": "Кабо-Верде",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 13,
       "dateTime": "2026-06-15T19:00:00"
@@ -352,9 +352,9 @@
       "group": "G",
       "team1": "Бельгия",
       "team2": "Египет",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 14,
       "dateTime": "2026-06-15T22:00:00"
@@ -364,9 +364,9 @@
       "group": "H",
       "team1": "Саудовская Аравия",
       "team2": "Уругвай",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 15,
       "dateTime": "2026-06-16T01:00:00"
@@ -376,9 +376,9 @@
       "group": "G",
       "team1": "Иран",
       "team2": "Новая Зеландия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 16,
       "dateTime": "2026-06-16T04:00:00"
@@ -388,9 +388,9 @@
       "group": "I",
       "team1": "Франция",
       "team2": "Сенегал",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 17,
       "dateTime": "2026-06-16T22:00:00"
@@ -400,9 +400,9 @@
       "group": "I",
       "team1": "Ирак",
       "team2": "Норвегия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 4,
+      "played": true,
       "stage": "group",
       "matchOrder": 18,
       "dateTime": "2026-06-17T01:00:00"
@@ -412,9 +412,9 @@
       "group": "J",
       "team1": "Аргентина",
       "team2": "Алжир",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 19,
       "dateTime": "2026-06-17T04:00:00"
@@ -424,9 +424,9 @@
       "group": "J",
       "team1": "Австрия",
       "team2": "Иордания",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 20,
       "dateTime": "2026-06-17T07:00:00"
@@ -436,9 +436,9 @@
       "group": "K",
       "team1": "Португалия",
       "team2": "ДР Конго",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 21,
       "dateTime": "2026-06-17T20:00:00"
@@ -448,9 +448,9 @@
       "group": "L",
       "team1": "Англия",
       "team2": "Хорватия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 4,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 22,
       "dateTime": "2026-06-17T23:00:00"
@@ -460,9 +460,9 @@
       "group": "L",
       "team1": "Гана",
       "team2": "Панама",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 23,
       "dateTime": "2026-06-18T02:00:00"
@@ -472,9 +472,9 @@
       "group": "K",
       "team1": "Узбекистан",
       "team2": "Колумбия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 24,
       "dateTime": "2026-06-18T05:00:00"
@@ -484,9 +484,9 @@
       "group": "A",
       "team1": "Чехия",
       "team2": "Южная Африка",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 25,
       "dateTime": "2026-06-18T19:00:00"
@@ -496,9 +496,9 @@
       "group": "B",
       "team1": "Швейцария",
       "team2": "Босния и Герцеговина",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 4,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 26,
       "dateTime": "2026-06-18T22:00:00"
@@ -508,9 +508,9 @@
       "group": "B",
       "team1": "Канада",
       "team2": "Катар",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 6,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 27,
       "dateTime": "2026-06-19T01:00:00"
@@ -520,9 +520,9 @@
       "group": "A",
       "team1": "Мексика",
       "team2": "Южная Корея",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 28,
       "dateTime": "2026-06-19T04:00:00"
@@ -532,9 +532,9 @@
       "group": "D",
       "team1": "США",
       "team2": "Австралия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 29,
       "dateTime": "2026-06-19T22:00:00"
@@ -544,9 +544,9 @@
       "group": "C",
       "team1": "Шотландия",
       "team2": "Марокко",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 30,
       "dateTime": "2026-06-20T01:00:00"
@@ -556,9 +556,9 @@
       "group": "C",
       "team1": "Бразилия",
       "team2": "Гаити",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 31,
       "dateTime": "2026-06-20T03:30:00"
@@ -568,9 +568,9 @@
       "group": "D",
       "team1": "Турция",
       "team2": "Парагвай",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 32,
       "dateTime": "2026-06-20T06:00:00"
@@ -580,9 +580,9 @@
       "group": "F",
       "team1": "Нидерланды",
       "team2": "Швеция",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 5,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 33,
       "dateTime": "2026-06-20T20:00:00"
@@ -592,9 +592,9 @@
       "group": "E",
       "team1": "Германия",
       "team2": "Кот-д'Ивуар",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 34,
       "dateTime": "2026-06-20T23:00:00"
@@ -604,9 +604,9 @@
       "group": "E",
       "team1": "Эквадор",
       "team2": "Кюрасао",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 35,
       "dateTime": "2026-06-21T03:00:00"
@@ -616,9 +616,9 @@
       "group": "F",
       "team1": "Тунис",
       "team2": "Япония",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 4,
+      "played": true,
       "stage": "group",
       "matchOrder": 36,
       "dateTime": "2026-06-21T07:00:00"
@@ -628,9 +628,9 @@
       "group": "H",
       "team1": "Испания",
       "team2": "Саудовская Аравия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 4,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 37,
       "dateTime": "2026-06-21T19:00:00"
@@ -640,9 +640,9 @@
       "group": "G",
       "team1": "Бельгия",
       "team2": "Иран",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 38,
       "dateTime": "2026-06-21T22:00:00"
@@ -652,9 +652,9 @@
       "group": "H",
       "team1": "Уругвай",
       "team2": "Кабо-Верде",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 39,
       "dateTime": "2026-06-22T01:00:00"
@@ -664,9 +664,9 @@
       "group": "G",
       "team1": "Новая Зеландия",
       "team2": "Египет",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 40,
       "dateTime": "2026-06-22T04:00:00"
@@ -676,9 +676,9 @@
       "group": "J",
       "team1": "Аргентина",
       "team2": "Австрия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 41,
       "dateTime": "2026-06-22T20:00:00"
@@ -688,9 +688,9 @@
       "group": "I",
       "team1": "Франция",
       "team2": "Ирак",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 42,
       "dateTime": "2026-06-23T00:00:00"
@@ -700,9 +700,9 @@
       "group": "I",
       "team1": "Норвегия",
       "team2": "Сенегал",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 43,
       "dateTime": "2026-06-23T03:00:00"
@@ -712,9 +712,9 @@
       "group": "J",
       "team1": "Иордания",
       "team2": "Алжир",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 44,
       "dateTime": "2026-06-23T06:00:00"
@@ -724,9 +724,9 @@
       "group": "K",
       "team1": "Португалия",
       "team2": "Узбекистан",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 5,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 45,
       "dateTime": "2026-06-23T20:00:00"
@@ -736,9 +736,9 @@
       "group": "L",
       "team1": "Англия",
       "team2": "Гана",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 46,
       "dateTime": "2026-06-23T23:00:00"
@@ -748,9 +748,9 @@
       "group": "L",
       "team1": "Панама",
       "team2": "Хорватия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 47,
       "dateTime": "2026-06-24T02:00:00"
@@ -760,9 +760,9 @@
       "group": "K",
       "team1": "Колумбия",
       "team2": "ДР Конго",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 48,
       "dateTime": "2026-06-24T05:00:00"
@@ -772,9 +772,9 @@
       "group": "B",
       "team1": "Босния и Герцеговина",
       "team2": "Катар",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 49,
       "dateTime": "2026-06-24T22:00:00"
@@ -784,9 +784,9 @@
       "group": "B",
       "team1": "Швейцария",
       "team2": "Канада",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 50,
       "dateTime": "2026-06-24T22:00:00"
@@ -796,9 +796,9 @@
       "group": "C",
       "team1": "Марокко",
       "team2": "Гаити",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 4,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 51,
       "dateTime": "2026-06-25T01:00:00"
@@ -808,9 +808,9 @@
       "group": "C",
       "team1": "Шотландия",
       "team2": "Бразилия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 52,
       "dateTime": "2026-06-25T01:00:00"
@@ -820,9 +820,9 @@
       "group": "A",
       "team1": "Чехия",
       "team2": "Мексика",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 53,
       "dateTime": "2026-06-25T04:00:00"
@@ -832,9 +832,9 @@
       "group": "A",
       "team1": "Южная Африка",
       "team2": "Южная Корея",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 54,
       "dateTime": "2026-06-25T04:00:00"
@@ -844,9 +844,9 @@
       "group": "E",
       "team1": "Кюрасао",
       "team2": "Кот-д'Ивуар",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 55,
       "dateTime": "2026-06-25T23:00:00"
@@ -856,9 +856,9 @@
       "group": "E",
       "team1": "Эквадор",
       "team2": "Германия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 56,
       "dateTime": "2026-06-25T23:00:00"
@@ -868,9 +868,9 @@
       "group": "F",
       "team1": "Тунис",
       "team2": "Нидерланды",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 57,
       "dateTime": "2026-06-26T02:00:00"
@@ -880,9 +880,9 @@
       "group": "F",
       "team1": "Япония",
       "team2": "Швеция",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 58,
       "dateTime": "2026-06-26T02:00:00"
@@ -892,9 +892,9 @@
       "group": "D",
       "team1": "Парагвай",
       "team2": "Австралия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 59,
       "dateTime": "2026-06-26T05:00:00"
@@ -904,9 +904,9 @@
       "group": "D",
       "team1": "Турция",
       "team2": "США",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 60,
       "dateTime": "2026-06-26T05:00:00"
@@ -916,9 +916,9 @@
       "group": "I",
       "team1": "Норвегия",
       "team2": "Франция",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 4,
+      "played": true,
       "stage": "group",
       "matchOrder": 61,
       "dateTime": "2026-06-26T22:00:00"
@@ -928,9 +928,9 @@
       "group": "I",
       "team1": "Сенегал",
       "team2": "Ирак",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 5,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 62,
       "dateTime": "2026-06-26T22:00:00"
@@ -940,9 +940,9 @@
       "group": "H",
       "team1": "Кабо-Верде",
       "team2": "Саудовская Аравия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 63,
       "dateTime": "2026-06-27T03:00:00"
@@ -952,9 +952,9 @@
       "group": "H",
       "team1": "Уругвай",
       "team2": "Испания",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 64,
       "dateTime": "2026-06-27T03:00:00"
@@ -964,9 +964,9 @@
       "group": "G",
       "team1": "Египет",
       "team2": "Иран",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 65,
       "dateTime": "2026-06-27T06:00:00"
@@ -976,9 +976,9 @@
       "group": "G",
       "team1": "Новая Зеландия",
       "team2": "Бельгия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 5,
+      "played": true,
       "stage": "group",
       "matchOrder": 66,
       "dateTime": "2026-06-27T06:00:00"
@@ -988,9 +988,9 @@
       "group": "L",
       "team1": "Панама",
       "team2": "Англия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 2,
+      "played": true,
       "stage": "group",
       "matchOrder": 67,
       "dateTime": "2026-06-28T00:00:00"
@@ -1000,9 +1000,9 @@
       "group": "L",
       "team1": "Хорватия",
       "team2": "Гана",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 2,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 68,
       "dateTime": "2026-06-28T00:00:00"
@@ -1012,9 +1012,9 @@
       "group": "K",
       "team1": "ДР Конго",
       "team2": "Узбекистан",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 1,
+      "played": true,
       "stage": "group",
       "matchOrder": 69,
       "dateTime": "2026-06-28T02:30:00"
@@ -1024,9 +1024,9 @@
       "group": "K",
       "team1": "Колумбия",
       "team2": "Португалия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 0,
+      "score2": 0,
+      "played": true,
       "stage": "group",
       "matchOrder": 70,
       "dateTime": "2026-06-28T02:30:00"
@@ -1036,9 +1036,9 @@
       "group": "J",
       "team1": "Алжир",
       "team2": "Австрия",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 3,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 71,
       "dateTime": "2026-06-28T05:00:00"
@@ -1048,12 +1048,348 @@
       "group": "J",
       "team1": "Иордания",
       "team2": "Аргентина",
-      "score1": null,
-      "score2": null,
-      "played": false,
+      "score1": 1,
+      "score2": 3,
+      "played": true,
       "stage": "group",
       "matchOrder": 72,
       "dateTime": "2026-06-28T05:00:00"
+    },
+    {
+      "id": "M73",
+      "score1": 0,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 73,
+      "team1": "Южная Африка",
+      "team2": "Канада",
+      "group": "PO",
+      "dateTime": "2026-06-28T22:00"
+    },
+    {
+      "id": "M74",
+      "score1": 2,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 74,
+      "team1": "Бразилия",
+      "team2": "Япония",
+      "group": "PO",
+      "dateTime": "2026-06-29T20:08"
+    },
+    {
+      "id": "M75",
+      "score1": 1,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 75,
+      "team1": "Нидерланды",
+      "team2": "Марокко",
+      "group": "PO",
+      "dateTime": "2026-06-30T04:00"
+    },
+    {
+      "id": "M76",
+      "score1": 1,
+      "score2": 2,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 76,
+      "team1": "Кот-д'Ивуар",
+      "team2": "Норвегия",
+      "group": "PO",
+      "dateTime": "2026-06-30T20:00"
+    },
+    {
+      "id": "M78",
+      "score1": 1,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 78,
+      "team1": "Германия",
+      "team2": "Парагвай",
+      "group": "PO",
+      "dateTime": "2026-06-29T23:30"
+    },
+    {
+      "id": "M79",
+      "score1": 3,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 79,
+      "team1": "Франция",
+      "team2": "Швеция",
+      "group": "PO",
+      "dateTime": "2026-07-01T00:00"
+    },
+    {
+      "id": "M81",
+      "score1": 2,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 81,
+      "team1": "Мексика",
+      "team2": "Эквадор",
+      "group": "PO",
+      "dateTime": "2026-07-01T04:00"
+    },
+    {
+      "id": "M82",
+      "score1": 2,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 82,
+      "team1": "Англия",
+      "team2": "ДР Конго",
+      "group": "PO",
+      "dateTime": "2026-07-01T19:00"
+    },
+    {
+      "id": "M83",
+      "score1": 2,
+      "score2": 2,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 83,
+      "team1": "Бельгия",
+      "team2": "Сенегал",
+      "group": "PO",
+      "dateTime": "2026-07-01T23:00"
+    },
+    {
+      "id": "M84",
+      "score1": 2,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 84,
+      "team1": "США",
+      "team2": "Босния и Герцеговина",
+      "group": "PO",
+      "dateTime": "2026-07-02T03:00"
+    },
+    {
+      "id": "M85",
+      "score1": 3,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 85,
+      "team1": "Испания",
+      "team2": "Австрия",
+      "group": "PO",
+      "dateTime": "2026-07-02T22:00"
+    },
+    {
+      "id": "M86",
+      "score1": 2,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 86,
+      "team1": "Португалия",
+      "team2": "Хорватия",
+      "group": "PO",
+      "dateTime": "2026-07-03T02:00"
+    },
+    {
+      "id": "M88",
+      "score1": 1,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 88,
+      "team1": "Австралия",
+      "team2": "Египет",
+      "group": "PO",
+      "dateTime": "2026-07-03T21:00"
+    },
+    {
+      "id": "M90",
+      "score1": 1,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 90,
+      "team1": "Аргентина",
+      "team2": "Кабо-Верде",
+      "group": "PO",
+      "dateTime": "2026-07-04T01:00"
+    },
+    {
+      "id": "M91",
+      "score1": 1,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 91,
+      "team1": "Колумбия",
+      "team2": "Гана",
+      "group": "PO",
+      "dateTime": "2026-07-04T04:30"
+    },
+    {
+      "id": "M92",
+      "score1": 2,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 92,
+      "team1": "Швейцария",
+      "team2": "Алжир",
+      "group": "PO",
+      "dateTime": "2026-07-03T06:00"
+    },
+    {
+      "id": "M93",
+      "score1": 0,
+      "score2": 3,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 93,
+      "team1": "Канада",
+      "team2": "Марокко",
+      "group": "PO",
+      "dateTime": "2026-07-04T20:00"
+    },
+    {
+      "id": "M94",
+      "score1": 0,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 94,
+      "team1": "Парагвай",
+      "team2": "Франция",
+      "group": "PO",
+      "dateTime": "2026-07-05T00:00"
+    },
+    {
+      "id": "M95",
+      "score1": 1,
+      "score2": 2,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 95,
+      "team1": "Бразилия",
+      "team2": "Норвегия",
+      "group": "PO",
+      "dateTime": "2026-07-05T23:00"
+    },
+    {
+      "id": "M96",
+      "score1": 2,
+      "score2": 3,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 96,
+      "team1": "Мексика",
+      "team2": "Англия",
+      "group": "PO",
+      "dateTime": "2026-07-06T03:00"
+    },
+    {
+      "id": "M97",
+      "score1": 0,
+      "score2": 1,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 97,
+      "team1": "Португалия",
+      "team2": "Испания",
+      "group": "PO",
+      "dateTime": "2026-07-06T22:00"
+    },
+    {
+      "id": "M98",
+      "score1": 1,
+      "score2": 4,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 98,
+      "team1": "США",
+      "team2": "Бельгия",
+      "group": "PO",
+      "dateTime": "2026-07-07T03:00"
+    },
+    {
+      "id": "M99",
+      "score1": 3,
+      "score2": 2,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 99,
+      "team1": "Аргентина",
+      "team2": "Египет",
+      "group": "PO",
+      "dateTime": "2026-07-07T19:00"
+    },
+    {
+      "id": "M100",
+      "score1": 0,
+      "score2": 0,
+      "played": true,
+      "stage": "roundOf16",
+      "matchOrder": 100,
+      "team1": "Швейцария",
+      "team2": "Колумбия",
+      "group": "PO",
+      "dateTime": "2026-07-07T23:00"
+    },
+    {
+      "id": "M101",
+      "score1": 2,
+      "score2": 0,
+      "played": true,
+      "stage": "quarterFinal",
+      "matchOrder": 101,
+      "team1": "Франция",
+      "team2": "Марокко",
+      "group": "PO",
+      "dateTime": "2026-07-09T23:00"
+    },
+    {
+      "id": "M102",
+      "score1": 2,
+      "score2": 1,
+      "played": true,
+      "stage": "quarterFinal",
+      "matchOrder": 102,
+      "team1": "Испания",
+      "team2": "Бельгия",
+      "group": "PO",
+      "dateTime": "2026-07-10T22:00"
+    },
+    {
+      "id": "M103",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "quarterFinal",
+      "matchOrder": 103,
+      "team1": "Норвегия",
+      "team2": "Англия",
+      "group": "PO",
+      "dateTime": "2026-07-12T00:00"
+    },
+    {
+      "id": "M104",
+      "score1": null,
+      "score2": null,
+      "played": false,
+      "stage": "quarterFinal",
+      "matchOrder": 104,
+      "team1": "Аргентина",
+      "team2": "Швейцария",
+      "group": "PO",
+      "dateTime": "2026-07-12T04:00"
     }
   ],
   "predictions": {
@@ -1072,11 +1408,783 @@
       },
       "M4": {
         "score1": 2,
+        "score2": 1
+      },
+      "M5": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M6": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M7": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M8": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M9": {
+        "score1": 3,
         "score2": 0
+      },
+      "M10": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M11": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M12": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M13": {
+        "score1": 5,
+        "score2": 0
+      },
+      "M14": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M15": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M16": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M17": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M18": {
+        "score1": 1,
+        "score2": 4
+      },
+      "M19": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M20": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M21": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M22": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M23": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M24": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M25": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M27": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M28": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M29": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M30": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M31": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M33": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M34": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M35": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M36": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M37": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M38": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M40": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M39": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M41": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M42": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M43": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M44": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M45": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M47": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M48": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M49": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M50": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M51": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M52": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M53": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M54": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M55": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M56": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 5
+      },
+      "M58": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M60": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M61": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M62": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M63": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M64": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M65": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M66": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M67": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M68": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M69": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M70": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M71": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M72": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M73": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M74": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M75": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M76": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M79": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M81": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M83": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M84": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M85": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M86": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M92": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M88": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M90": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M91": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M93": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M94": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M95": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M96": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M97": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M98": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M99": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M100": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M101": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M102": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M103": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M104": {
+        "score1": 2,
+        "score2": 1
       }
     },
     "user_1780061837747": {
       "M1": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M2": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M3": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M4": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M5": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M6": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M7": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M8": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M10": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M9": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M11": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M12": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M13": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M14": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M15": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M16": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M17": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M18": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M19": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M20": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M21": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M22": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M23": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M24": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M25": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M27": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M28": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M29": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M30": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M31": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M33": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M34": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M35": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M36": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M37": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M38": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M39": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M40": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M41": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M42": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M43": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M44": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M45": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M47": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M48": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M49": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M50": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M51": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M52": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M53": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M54": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M56": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M55": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M58": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M60": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M61": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M62": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M63": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M64": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M65": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M66": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M67": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M68": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M70": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M69": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M71": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M72": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M73": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M74": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M75": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M79": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M76": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M84": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M81": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M83": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M85": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M86": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M88": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M92": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M91": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M90": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M95": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M94": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M96": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M97": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M99": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M100": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M98": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M101": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M102": {
         "score1": 2,
         "score2": 1
       }
@@ -1107,15 +2215,15 @@
         "score2": 1
       },
       "M6": {
-        "score1": 3,
-        "score2": 0
+        "score1": 2,
+        "score2": 1
       },
       "M7": {
-        "score1": 1,
+        "score1": 0,
         "score2": 2
       },
       "M9": {
-        "score1": 4,
+        "score1": 3,
         "score2": 0
       },
       "M11": {
@@ -1123,7 +2231,7 @@
         "score2": 1
       },
       "M10": {
-        "score1": 2,
+        "score1": 1,
         "score2": 1
       },
       "M12": {
@@ -1177,6 +2285,310 @@
       "M23": {
         "score1": 2,
         "score2": 1
+      },
+      "M25": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M27": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M28": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M29": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M30": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M33": {
+        "score1": 3,
+        "score2": 2
+      },
+      "M34": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M35": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M36": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M37": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M38": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M39": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M40": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M41": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M31": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M42": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M43": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M44": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M45": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M47": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M48": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M49": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M50": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M51": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M52": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M53": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M54": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M55": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M56": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M58": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M60": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M61": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M62": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M63": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M64": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M65": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M66": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M67": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M68": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M69": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M70": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M71": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M72": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M73": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M74": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M75": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M76": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M79": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M81": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M83": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M84": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M85": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M86": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M92": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M88": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M90": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M91": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M94": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M95": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M96": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M97": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M98": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M99": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M100": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M101": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M102": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M103": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M104": {
+        "score1": 2,
+        "score2": 1
       }
     },
     "user_1780659266431": {
@@ -1194,6 +2606,382 @@
       },
       "M4": {
         "score1": 1,
+        "score2": 0
+      },
+      "M5": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M6": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M7": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M8": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M9": {
+        "score1": 5,
+        "score2": 0
+      },
+      "M10": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M11": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M12": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M13": {
+        "score1": 6,
+        "score2": 0
+      },
+      "M14": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M15": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M16": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M20": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M19": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M18": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M17": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M28": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M27": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M25": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M24": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M23": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M22": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M21": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M29": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M30": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M31": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M34": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M35": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M36": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M37": {
+        "score1": 4,
+        "score2": 0
+      },
+      "M38": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M39": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M40": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M41": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M42": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M43": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M44": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M45": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M47": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M48": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M50": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M49": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M51": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M52": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M53": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M54": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M55": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M56": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M58": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M59": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M60": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M61": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M62": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M63": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M64": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M65": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M66": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M67": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M68": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M69": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M70": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M72": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M71": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M73": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M74": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M75": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M76": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M79": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M81": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M83": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M84": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M85": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M86": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M92": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M88": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M90": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M91": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M94": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M95": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M96": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M97": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M99": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M100": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M101": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M102": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M33": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M98": {
+        "score1": 0,
         "score2": 0
       }
     },
@@ -1215,16 +3003,16 @@
         "score2": 0
       },
       "M5": {
-        "score1": 2,
-        "score2": 0
+        "score1": 0,
+        "score2": 2
       },
       "M6": {
-        "score1": 3,
+        "score1": 2,
         "score2": 1
       },
       "M7": {
-        "score1": 1,
-        "score2": 0
+        "score1": 0,
+        "score2": 2
       },
       "M8": {
         "score1": 1,
@@ -1235,24 +3023,368 @@
         "score2": 0
       },
       "M10": {
-        "score1": 0,
-        "score2": 1
+        "score1": 1,
+        "score2": 0
       },
       "M11": {
         "score1": 1,
-        "score2": 1
+        "score2": 2
       },
       "M12": {
         "score1": 2,
         "score2": 1
       },
       "M13": {
+        "score1": 6,
+        "score2": 0
+      },
+      "M14": {
         "score1": 2,
         "score2": 1
       },
-      "M14": {
+      "M15": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M16": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M17": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M18": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M19": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M20": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M21": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M22": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M23": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M24": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M25": {
         "score1": 0,
         "score2": 2
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M27": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M28": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M29": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M30": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M31": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M32": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M33": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M34": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M35": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M36": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M37": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M38": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M39": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M40": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M42": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M43": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M44": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M45": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M41": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M47": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M48": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M49": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M50": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M51": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M52": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M53": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M54": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M55": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M56": {
+        "score1": 0,
+        "score2": 5
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M58": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M60": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M61": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M62": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M63": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M64": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M65": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M66": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M67": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M68": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M69": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M70": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M71": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M72": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M73": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M74": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M78": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M76": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M79": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M81": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M83": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M84": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M85": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M86": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M75": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M92": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M88": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M90": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M91": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M94": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M95": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M96": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M97": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M98": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M99": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M100": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M101": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M102": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M103": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M104": {
+        "score1": 2,
+        "score2": 0
       }
     },
     "user_1780642697357": {
@@ -1274,6 +3406,386 @@
       },
       "M5": {
         "score1": 0,
+        "score2": 1
+      },
+      "M6": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M7": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M8": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M9": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M10": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M11": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M12": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M13": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M14": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M15": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M16": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M17": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M18": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M19": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M20": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M21": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M24": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M23": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M25": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M22": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M27": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M28": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M29": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M30": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M31": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M34": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M37": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M36": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M35": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M38": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M39": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M40": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M41": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M42": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M43": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M44": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M45": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M47": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M48": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M49": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M50": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M33": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M51": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M52": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M53": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M54": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M55": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M56": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M58": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M60": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M61": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M62": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M63": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M64": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M65": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M66": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M67": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M68": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M69": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M70": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M71": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M72": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M73": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M74": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M75": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M76": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M79": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M81": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M84": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M83": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M85": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M86": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M92": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M90": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M91": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M88": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M94": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M95": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M96": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M97": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M98": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M99": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M100": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M101": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M102": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M103": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M104": {
+        "score1": 2,
         "score2": 1
       }
     },
@@ -1337,6 +3849,346 @@
       "M15": {
         "score1": 0,
         "score2": 1
+      },
+      "M16": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M17": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M18": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M19": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M20": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M21": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M22": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M23": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M24": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M25": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M26": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M27": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M28": {
+        "score1": 3,
+        "score2": 2
+      },
+      "M29": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M30": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M31": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M33": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M34": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M35": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M36": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M37": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M38": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M39": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M40": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M41": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M42": {
+        "score1": 4,
+        "score2": 1
+      },
+      "M43": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M44": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M45": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M47": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M48": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M49": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M50": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M51": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M52": {
+        "score1": 2,
+        "score2": 3
+      },
+      "M53": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M54": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M55": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M56": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M58": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M60": {
+        "score1": 1,
+        "score2": 4
+      },
+      "M61": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M62": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M64": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M63": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M65": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M66": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M67": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M68": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M69": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M70": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M72": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M71": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M73": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M74": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M75": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M76": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M79": {
+        "score1": 4,
+        "score2": 2
+      },
+      "M82": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M83": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M84": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M85": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M86": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M92": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M81": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M88": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M90": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M91": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M94": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M95": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M96": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M97": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M98": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M100": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M101": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M99": {
+        "score1": 0,
+        "score2": 0
+      },
+      "M102": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M103": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M104": {
+        "score1": 3,
+        "score2": 2
       }
     },
     "user_1781165946169": {
@@ -1349,6 +4201,394 @@
         "score2": 0
       },
       "M4": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M1": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M5": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M6": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M7": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M8": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M9": {
+        "score1": 5,
+        "score2": 0
+      },
+      "M10": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M11": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M12": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M13": {
+        "score1": 4,
+        "score2": 1
+      },
+      "M14": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M15": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M16": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M17": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M18": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M19": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M20": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M21": {
+        "score1": 4,
+        "score2": 1
+      },
+      "M22": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M23": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M24": {
+        "score1": 0,
+        "score2": 2
+      },
+      "M25": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M26": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M27": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M28": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M29": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M30": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M31": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M32": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M33": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M34": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M35": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M36": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M37": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M38": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M39": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M40": {
+        "score1": 0,
+        "score2": 1
+      },
+      "M41": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M42": {
+        "score1": 5,
+        "score2": 1
+      },
+      "M43": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M44": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M45": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M46": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M47": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M48": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M49": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M50": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M51": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M52": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M53": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M54": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M55": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M56": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M57": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M58": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M59": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M60": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M61": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M62": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M63": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M64": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M65": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M66": {
+        "score1": 0,
+        "score2": 3
+      },
+      "M67": {
+        "score1": 1,
+        "score2": 3
+      },
+      "M68": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M69": {
+        "score1": 1,
+        "score2": 0
+      },
+      "M70": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M71": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M72": {
+        "score1": 1,
+        "score2": 4
+      },
+      "M73": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M74": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M78": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M75": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M76": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M79": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M81": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M82": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M83": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M84": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M85": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M86": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M92": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M88": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M90": {
+        "score1": 3,
+        "score2": 0
+      },
+      "M91": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M93": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M94": {
+        "score1": 0,
+        "score2": 4
+      },
+      "M95": {
+        "score1": 3,
+        "score2": 2
+      },
+      "M96": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M97": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M98": {
+        "score1": 1,
+        "score2": 1
+      },
+      "M99": {
+        "score1": 2,
+        "score2": 0
+      },
+      "M100": {
+        "score1": 1,
+        "score2": 2
+      },
+      "M101": {
+        "score1": 3,
+        "score2": 1
+      },
+      "M102": {
+        "score1": 2,
+        "score2": 1
+      },
+      "M103": {
+        "score1": 2,
+        "score2": 2
+      },
+      "M104": {
         "score1": 2,
         "score2": 0
       }
@@ -1458,7 +4698,7 @@
     "user_1780061305085": {
       "A": [
         "Мексика",
-        "Чехия"
+        "Южная Корея"
       ],
       "B": [
         "Канада",
@@ -1537,6 +4777,22 @@
       "H": [
         "Испания",
         "Уругвай"
+      ],
+      "I": [
+        "Франция",
+        "Норвегия"
+      ],
+      "J": [
+        "Австрия",
+        "Аргентина"
+      ],
+      "K": [
+        "Португалия",
+        "Колумбия"
+      ],
+      "L": [
+        "Хорватия",
+        "Англия"
       ]
     },
     "user_1780642697357": {
@@ -1742,26 +4998,62 @@
   },
   "winners": {
     "user_1780659266431": {
-      "first": "Испания",
-      "second": "Франция",
-      "third": "Португалия"
+      "first": "Франция",
+      "second": "Аргентина",
+      "third": "Испания"
     },
     "user_1780061557032": {
-      "first": "Франция",
-      "second": "Испания",
-      "third": "Аргентина"
+      "first": "Аргентина",
+      "second": "Франция",
+      "third": "Испания"
     },
     "user_1781165885446": {
-      "first": "Испания",
-      "second": "Франция",
-      "third": "Португалия"
+      "first": "Франция",
+      "second": "Аргентина",
+      "third": "Испания"
     },
     "user_1781165946169": {
       "first": "Англия",
-      "second": "Испания",
-      "third": "Нидерланды"
+      "second": "Нидерланды",
+      "third": "Испания"
+    },
+    "user_1779863162284": {
+      "first": "Франция",
+      "second": "Аргентина",
+      "third": "Англия"
+    },
+    "user_1780061305085": {
+      "first": "Кабо-Верде",
+      "second": "Португалия",
+      "third": "Кот-д'Ивуар"
+    },
+    "user_1780061837747": {
+      "first": "Франция",
+      "second": "Аргентина",
+      "third": "Испания"
+    },
+    "user_1780642697357": {
+      "first": "Испания",
+      "second": "Аргентина",
+      "third": "Франция"
     }
   },
-  "actualFinals": {},
+  "actualFinals": {
+    "A": [],
+    "B": [
+      "Швейцария",
+      "Канада"
+    ],
+    "C": [],
+    "D": [],
+    "E": [],
+    "F": [],
+    "G": [],
+    "H": [],
+    "I": [],
+    "J": [],
+    "K": [],
+    "L": []
+  },
   "actualWinners": {}
 }
