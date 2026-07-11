@@ -158,20 +158,30 @@ app.post('/api/data', (req, res) => {
       }
     }
 
-    // --- ActualFinals merge ---
+    // --- ActualFinals merge (preserve new data, add missing keys from existing) ---
     if (!newData.actualFinals) {
       newData.actualFinals = {};
     }
     if (existing.actualFinals) {
-      Object.assign(newData.actualFinals, existing.actualFinals);
+      // Only add keys that exist in existing but are missing in newData
+      for (const key of Object.keys(existing.actualFinals)) {
+        if (!(key in newData.actualFinals)) {
+          newData.actualFinals[key] = existing.actualFinals[key];
+        }
+      }
     }
 
-    // --- ActualWinners merge ---
+    // --- ActualWinners merge (preserve new data, add missing keys from existing) ---
     if (!newData.actualWinners) {
       newData.actualWinners = {};
     }
     if (existing.actualWinners) {
-      Object.assign(newData.actualWinners, existing.actualWinners);
+      // Only add keys that exist in existing but are missing in newData
+      for (const key of Object.keys(existing.actualWinners)) {
+        if (!(key in newData.actualWinners)) {
+          newData.actualWinners[key] = existing.actualWinners[key];
+        }
+      }
     }
 
     writeData(newData);
