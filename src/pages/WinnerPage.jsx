@@ -15,11 +15,30 @@ export default function WinnerPage() {
   });
   const [saved, setSaved] = useState(false);
 
+  // Read-only locked view — показываем выбранное, но не даём редактировать
   if (isLocked) {
     return (
-      <div className="page-message">
-        <h2>🔒 Выбор призёров заблокирован</h2>
-        <p>Администратор временно отключил возможность выбора призёров турнира.</p>
+      <div className="winner-page">
+        <div className="lock-notice">
+          <span role="img" aria-label="lock">🔒</span> Выбор призёров заблокирован администратором
+        </div>
+        <h1 className="page-title">🏆 Призёры турнира</h1>
+        <p className="page-subtitle">Ваш выбор (изменение недоступно)</p>
+
+        <div className="winners-selector winners-readonly">
+          <div className="winner-row">
+            <span className="winner-label">🥇 1-е место</span>
+            <span className="winner-value">{winners.first || '—'}</span>
+          </div>
+          <div className="winner-row">
+            <span className="winner-label">🥈 2-е место</span>
+            <span className="winner-value">{winners.second || '—'}</span>
+          </div>
+          <div className="winner-row">
+            <span className="winner-label">🥉 3-е место</span>
+            <span className="winner-value">{winners.third || '—'}</span>
+          </div>
+        </div>
       </div>
     );
   }

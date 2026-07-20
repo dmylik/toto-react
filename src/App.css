@@ -790,6 +790,49 @@ background: #334155;
   color: #fbbf24;
 }
 
+/* ===== Winner Read-Only (locked) ===== */
+.winner-page .lock-notice {
+  text-align: center;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  background: #1e293b;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  color: #fbbf24;
+  font-size: 0.95rem;
+}
+
+.winners-readonly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: #1e293b;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.winners-readonly .winner-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.winner-value {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 1rem;
+  min-width: 250px;
+  text-align: center;
+}
+
 /* ===== Statistics ===== */
 .leaderboard-table-wrapper {
   width: 100%;

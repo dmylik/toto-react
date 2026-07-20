@@ -119,7 +119,7 @@ export default function StatisticsPage() {
                   <li>{SCORING_LABELS.champion}: <strong>+{cfg.champion}</strong></li>
                   <li>{SCORING_LABELS.secondPlace}: <strong>+{cfg.secondPlace}</strong></li>
                   <li>{SCORING_LABELS.thirdPlace}: <strong>+{cfg.thirdPlace}</strong></li>
-                  <li>{SCORING_LABELS.allThree}: <strong>+{cfg.allThree}</strong> (бонус)</li>
+                  <li>{SCORING_LABELS.topThreePick}: <strong>+{cfg.allThree}</strong> (за каждого)</li>
                 </ul>
               </div>
             </div>

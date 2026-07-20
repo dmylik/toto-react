@@ -30,7 +30,7 @@ export default function AdminSettings() {
     { key: 'champion', label: SCORING_LABELS.champion },
     { key: 'secondPlace', label: SCORING_LABELS.secondPlace },
     { key: 'thirdPlace', label: SCORING_LABELS.thirdPlace },
-    { key: 'allThree', label: SCORING_LABELS.allThree },
+    { key: 'allThree', label: SCORING_LABELS.topThreePick },
   ];
 
   return (

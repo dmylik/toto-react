@@ -9,7 +9,7 @@ export const DEFAULT_SCORING = {
   champion: 15,          // Угадано 1-е место
   secondPlace: 10,       // Угадано 2-е место
   thirdPlace: 5,         // Угадано 3-е место
-  allThree: 10,          // Угаданы все три призёра (независимо от позиций)
+  allThree: 10,          // Бонус за каждого призёра, попавшего в тройку (независимо от позиции)
 };
 
 // ===== Helpers =====
@@ -123,22 +123,7 @@ export function calculateWinnersScore(userWinners, actualWinners, scoringConfig)
 
   const details = [];
 
-  // 1. All three correct (any order) — +10 bonus
-  // Если пользователь угадал всех трёх призёров (1-е, 2-е, 3-е место),
-  // неважно в каком порядке — начисляется бонус
-  const userSet = [userWinners.first, userWinners.second, userWinners.third].filter(Boolean);
-  const actualSet = [actualWinners.first, actualWinners.second, actualWinners.third].filter(Boolean);
-
-  if (userSet.length === 3 && actualSet.length === 3) {
-    const sortedUser = [...userSet].sort();
-    const sortedActual = [...actualSet].sort();
-    const allMatch = sortedUser.every((t, i) => t === sortedActual[i]);
-    if (allMatch) {
-      details.push({ rule: 'allThree', points: cfg.allThree, teams: [...userSet] });
-    }
-  }
-
-  // 2. Position-specific points
+  // 1. Position-specific points
   // 1-е место — +15
   if (userWinners.first && userWinners.first === actualWinners.first) {
     details.push({ rule: 'champion', points: cfg.champion, team: userWinners.first });
@@ -152,6 +137,17 @@ export function calculateWinnersScore(userWinners, actualWinners, scoringConfig)
   // 3-е место — +5
   if (userWinners.third && userWinners.third === actualWinners.third) {
     details.push({ rule: 'thirdPlace', points: cfg.thirdPlace, team: userWinners.third });
+  }
+
+  // 2. Bonus: +cfg.allThree for EACH team in user's picks that made it to the top 3
+  // (независимо от порядка — если команда пользователя есть среди actual-призёров)
+  const userSet = [userWinners.first, userWinners.second, userWinners.third].filter(Boolean);
+  const actualSet = [actualWinners.first, actualWinners.second, actualWinners.third].filter(Boolean);
+
+  for (const team of userSet) {
+    if (actualSet.includes(team)) {
+      details.push({ rule: 'topThreePick', points: cfg.allThree, team });
+    }
   }
 
   const total = details.reduce((sum, d) => sum + d.points, 0);
@@ -328,5 +324,6 @@ export const SCORING_LABELS = {
   champion: '1-е место (победитель)',
   secondPlace: '2-е место',
   thirdPlace: '3-е место',
-  allThree: 'Все три призёра (независимо от порядка)',
+  allThree: 'Каждый в топ-3 (бонус)',
+  topThreePick: 'В топ-3 (независимо от позиции)',
 };
